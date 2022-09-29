@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashScreen: View {
     var body: some View {
-        LottieView(lottieFile: "72702-tree.json").frame(width: 300, height: 300)
+        LottieView(lottieFile: "lottie.json").frame(width: 300, height: 300)
     }
 }
 

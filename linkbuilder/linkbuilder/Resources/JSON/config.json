@@ -1,0 +1,84 @@
+{
+   "config-data":[
+      {
+         "application-id":"AMG",
+         "application-name":"Meine AOK",
+         "universal-link":{
+            "backend-environment":[
+               {
+                  "name":"CGJ",
+                  "static-path":"ogs-integration.apps.cx.ocp.aws.aok-systems.de",
+                  "insurance":[
+                     {
+                        "name":"HV3/HV5",
+                        "subdomain":"hv"
+                     },
+                     {
+                        "name":"AOK Systems",
+                        "subdomain":"app"
+                     },
+                     {
+                        "name":"AOK Bayern",
+                        "subdomain":"kasse"
+                     },
+                     {
+                        "name":"HV7",
+                        "subdomain":"neuereg"
+                     }
+                  ]
+               },
+               {
+                  "name":"CGT",
+                  "static-path":"ogs-integration.apps.cx.ocp.aws.aok-systems.de",
+                  "insurance":[
+                     {
+                        "name":"HV3/HV5",
+                        "subdomain":"hv"
+                     },
+                     {
+                        "name":"AOK Systems",
+                        "subdomain":"app"
+                     },
+                     {
+                        "name":"AOK Bayern",
+                        "subdomain":"kasse"
+                     },
+                     {
+                        "name":"HV7",
+                        "subdomain":"neuereg"
+                     }
+                  ]
+               }
+            ],
+            "use-case":[
+               {
+                  "name":"Registration confirmation",
+                  "actions":[
+                     "site/register-confirm",
+                     "site/registerConfirm"
+                  ],
+                  "test-case":[
+                     {
+                        "name":"valid code",
+                        "param":"code=005056BDA7651EDB9F89990F6E4BAE1E"
+                     },
+                     {
+                        "name":"invalid code",
+                        "param":"code=abc123"
+                     }
+                  ]
+               }
+            ]
+         },
+         "app-to-app":{
+            "static-path":"www.aok.de/meine-aok-app/",
+            "use-case":[
+               {
+                  "name":"Mailbox",
+                  "action":"mailbox"
+               }
+            ]
+         }
+      }
+   ]
+}
