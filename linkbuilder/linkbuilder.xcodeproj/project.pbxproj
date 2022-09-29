@@ -10,8 +10,11 @@
 		AA1D0CA628E57AB3006EE52B /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = AA1D0CA528E57AB3006EE52B /* config.json */; };
 		AA1D0CAA28E57BA8006EE52B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D0CA928E57BA8006EE52B /* Colors.swift */; };
 		AA1D0CAC28E57BC0006EE52B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D0CAB28E57BC0006EE52B /* Image.swift */; };
+		AA1D0CB228E587B5006EE52B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D0CB128E587B5006EE52B /* SelectionView.swift */; };
+		AA1D0CB428E58C1E006EE52B /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D0CB328E58C1E006EE52B /* Symbols.swift */; };
+		AA1D0CB628E591EE006EE52B /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D0CB528E591EE006EE52B /* SelectionModel.swift */; };
 		AA26DFEE28E3174900B9E23A /* LinkbuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26DFED28E3174900B9E23A /* LinkbuilderApp.swift */; };
-		AA26DFF028E3174900B9E23A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26DFEF28E3174900B9E23A /* ContentView.swift */; };
+		AA26DFF028E3174900B9E23A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26DFEF28E3174900B9E23A /* HomeView.swift */; };
 		AA26DFF228E3174900B9E23A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA26DFF128E3174900B9E23A /* Assets.xcassets */; };
 		AA26DFF528E3174900B9E23A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA26DFF428E3174900B9E23A /* Preview Assets.xcassets */; };
 		AA26DFFD28E32C0F00B9E23A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AA26DFFC28E32C0F00B9E23A /* Lottie */; };
@@ -24,9 +27,12 @@
 		AA1D0CA528E57AB3006EE52B /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		AA1D0CA928E57BA8006EE52B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		AA1D0CAB28E57BC0006EE52B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		AA1D0CB128E587B5006EE52B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		AA1D0CB328E58C1E006EE52B /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		AA1D0CB528E591EE006EE52B /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
 		AA26DFEA28E3174900B9E23A /* linkbuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = linkbuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA26DFED28E3174900B9E23A /* LinkbuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkbuilderApp.swift; sourceTree = "<group>"; };
-		AA26DFEF28E3174900B9E23A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA26DFEF28E3174900B9E23A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AA26DFF128E3174900B9E23A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA26DFF428E3174900B9E23A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA26DFFE28E32C7A00B9E23A /* lottie-tree.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-tree.json"; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 			children = (
 				AA26E00028E32D1B00B9E23A /* LottieView.swift */,
 				AA1D0CA828E57B99006EE52B /* Extension */,
+				AA1D0CB328E58C1E006EE52B /* Symbols.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -84,6 +91,7 @@
 		AA1D0CAD28E57CBD006EE52B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AA1D0CB028E5875F006EE52B /* Selection */,
 				AA1D0CAF28E57D2E006EE52B /* Home */,
 				AA1D0CAE28E57CCB006EE52B /* Splash */,
 			);
@@ -101,8 +109,18 @@
 		AA1D0CAF28E57D2E006EE52B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AA26DFEF28E3174900B9E23A /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		AA1D0CB028E5875F006EE52B /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				AA1D0CB128E587B5006EE52B /* SelectionView.swift */,
+				AA1D0CB528E591EE006EE52B /* SelectionModel.swift */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		AA26DFE128E3174900B9E23A = {
@@ -128,7 +146,6 @@
 				AA1D0CAD28E57CBD006EE52B /* Features */,
 				AA1D0CA328E57A64006EE52B /* Resources */,
 				AA26DFED28E3174900B9E23A /* LinkbuilderApp.swift */,
-				AA26DFEF28E3174900B9E23A /* ContentView.swift */,
 				AA26DFF128E3174900B9E23A /* Assets.xcassets */,
 				AA26DFF328E3174900B9E23A /* Preview Content */,
 			);
@@ -151,9 +168,9 @@
 			buildConfigurationList = AA26DFF828E3174900B9E23A /* Build configuration list for PBXNativeTarget "linkbuilder" */;
 			buildPhases = (
 				AA26DFE628E3174900B9E23A /* Sources */,
-				AA26E00728E482E700B9E23A /* ShellScript */,
 				AA26DFE728E3174900B9E23A /* Frameworks */,
 				AA26DFE828E3174900B9E23A /* Resources */,
+				AA26E00728E482E700B9E23A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -243,10 +260,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA26E00928E4839B00B9E23A /* SplashScreen.swift in Sources */,
+				AA1D0CB628E591EE006EE52B /* SelectionModel.swift in Sources */,
+				AA1D0CB428E58C1E006EE52B /* Symbols.swift in Sources */,
 				AA1D0CAC28E57BC0006EE52B /* Image.swift in Sources */,
 				AA1D0CAA28E57BA8006EE52B /* Colors.swift in Sources */,
-				AA26DFF028E3174900B9E23A /* ContentView.swift in Sources */,
+				AA26DFF028E3174900B9E23A /* HomeView.swift in Sources */,
 				AA26DFEE28E3174900B9E23A /* LinkbuilderApp.swift in Sources */,
+				AA1D0CB228E587B5006EE52B /* SelectionView.swift in Sources */,
 				AA26E00128E32D1B00B9E23A /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
