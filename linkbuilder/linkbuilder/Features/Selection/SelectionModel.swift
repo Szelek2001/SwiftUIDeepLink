@@ -13,7 +13,7 @@ struct Config: Codable {
     var appToApp: AppToApp
     private enum CodingKeys: String, CodingKey {
         case id = "application-id"
-        case name = "Meine AOK"
+        case name = "application-name"
         case universalLink = "universal-link"
         case appToApp = "app-to-app"
     }
@@ -28,7 +28,7 @@ struct UniversalLink: Codable {
 }
 struct AppToApp: Codable {
     var staticPath: String
-    var useCase: UseCase
+    var useCase: [UseCase]
     private enum CodingKeys: String, CodingKey {
         case staticPath = "static-path"
         case useCase = "use-case"
@@ -46,7 +46,7 @@ struct BackendEnviroment: Codable {
 }
 struct UseCase: Codable {
     var name: String
-    var actions: [String]
+    var actions: [String]?
     var testCase: [TestCase]?
     var action: String?
     private enum CodingKeys: String, CodingKey {
