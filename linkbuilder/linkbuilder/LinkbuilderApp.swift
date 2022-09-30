@@ -11,7 +11,18 @@ import SwiftUI
 struct LinkbuilderApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            TabView {
+                SelectionView(viewModel: SelectionViewModel())
+                    .tabItem {
+                    Symbols.checklist
+                Text("Selection")
+            }
+                SplashScreen()
+                    .tabItem {
+                    Symbols.gear
+                    Text("Settings")
+                }
+            }
         }
     }
 }

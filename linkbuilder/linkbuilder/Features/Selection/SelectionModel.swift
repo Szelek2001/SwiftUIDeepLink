@@ -18,6 +18,14 @@ struct Config: Codable {
         case appToApp = "app-to-app"
     }
 }
+extension Config: Hashable {
+    static func == (lhs: Config, rhs: Config) -> Bool {
+        lhs.id == rhs.id
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
 struct UniversalLink: Codable {
     var backendEnviroment: [BackendEnviroment]
     var useCase: [UseCase]
@@ -37,11 +45,19 @@ struct AppToApp: Codable {
 struct BackendEnviroment: Codable {
     var name: String
     var staticPath: String
-    var insurance: [Insurance]
+    var insurance: [Insurance]?
     private enum CodingKeys: String, CodingKey {
         case staticPath = "static-path"
         case name = "name"
         case insurance = "insurance"
+    }
+}
+extension BackendEnviroment: Hashable {
+    static func == (lhs: BackendEnviroment, rhs: BackendEnviroment) -> Bool {
+        lhs.name == rhs.name
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
     }
 }
 struct UseCase: Codable {
@@ -60,7 +76,21 @@ struct Insurance: Codable {
     var name: String
     var subdomain: String
 }
+extension Insurance: Hashable {
+    static func == (lhs: Insurance, rhs: Insurance) -> Bool {
+        lhs.name == rhs.name
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }}
 struct TestCase: Codable {
     var name: String
     var param: String
 }
+extension TestCase: Hashable {
+    static func == (lhs: TestCase, rhs: TestCase) -> Bool {
+        lhs.name == rhs.name
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }}
