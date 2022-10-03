@@ -52,7 +52,7 @@ struct BackendEnviroment: Codable {
         case insurance = "insurance"
     }
 }
-extension BackendEnviroment: Hashable {
+extension BackendEnviroment: Hashable, Equatable {
     static func == (lhs: BackendEnviroment, rhs: BackendEnviroment) -> Bool {
         lhs.name == rhs.name
     }
@@ -72,11 +72,19 @@ struct UseCase: Codable {
         case action = "action"
     }
 }
+extension UseCase: Hashable, Equatable {
+    static func == (lhs: UseCase, rhs: UseCase) -> Bool {
+        lhs.name == rhs.name
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
 struct Insurance: Codable {
     var name: String
     var subdomain: String
 }
-extension Insurance: Hashable {
+extension Insurance: Hashable, Equatable {
     static func == (lhs: Insurance, rhs: Insurance) -> Bool {
         lhs.name == rhs.name
     }
