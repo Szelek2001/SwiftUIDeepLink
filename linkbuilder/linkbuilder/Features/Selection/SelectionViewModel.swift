@@ -17,7 +17,6 @@ class SelectionViewModel: ObservableObject {
     @Published  var selectedUseCase: UseCase?
     @Published  var selectedtestCase: TestCase?
     @Published  var selected: Selected = .aplication
-    
     @Published private(set) var aplications: [Config] = []
     func loadJson(filename fileName: String) {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
@@ -33,7 +32,7 @@ class SelectionViewModel: ObservableObject {
             }
         }
     }
-    func afterPickingSomething() {
+    func changeAfterPickingSomething() {
         switch selected {
         case .aplication:
             ()
@@ -47,8 +46,11 @@ class SelectionViewModel: ObservableObject {
         case .useCase:
             testCase = selectedUseCase?.testCase ?? []
         case .testCase:
-            print("wyswietl")
+            ()
         }
+    }
+    func makelink() {
+        
     }
 }
 enum Selected {

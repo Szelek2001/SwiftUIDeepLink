@@ -15,12 +15,22 @@ struct LinkbuilderApp: App {
                 SelectionView(viewModel: SelectionViewModel())
                     .tabItem {
                     Symbols.checklist
-                Text("Selection")
+                        Text(TextMain.selection)
             }
                 SplashScreen()
                     .tabItem {
                     Symbols.gear
-                    Text("Settings")
+                        Text(TextMain.settings)
+                }
+                SplashScreen()
+                    .tabItem {
+                    Symbols.new
+                        Text(TextMain.new)
+                }
+                SplashScreen()
+                    .tabItem {
+                    Symbols.history
+                        Text(TextMain.history)
                 }
             }
         }

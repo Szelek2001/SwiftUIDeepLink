@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SelectionView: View {
     @StateObject var viewModel: SelectionViewModel
+    @State var isready: Bool = false
     var body: some View {
         ZStack {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
@@ -17,28 +18,30 @@ struct SelectionView: View {
                 Spacer(minLength: 30)
                 VStack {
                     VStack {
-                        Text("Select enviroment: ")
+                        Text(TextSelection.selectEnviroment)
                         Picker("", selection: $viewModel.selectedEnvironment) {
                             ForEach(viewModel.backendEnvironment, id: \.self) { enviroment in
-                                Text(enviroment.name).tag(enviroment as BackendEnviroment?)
+                                Text(enviroment.name)
+                                    .tag(enviroment as BackendEnviroment?)
                             }
                         }.pickerStyle(SegmentedPickerStyle()).colorMultiply(Color(.aokGreen!)).onChange(of: viewModel.selectedEnvironment) { _ in
                             viewModel.selected = .enviroment
-                            viewModel.afterPickingSomething()
+                            viewModel.changeAfterPickingSomething()
                             }
                          }
                     Spacer(minLength: 30)
                     if viewModel.selected == .enviroment || viewModel.selected == .insurance || viewModel.selected == .useCase || viewModel.selected == .testCase{
                         VStack {
-                            Text("Select Kasse:")
+                            Text(TextSelection.selectInsurance)
                             Picker("", selection: $viewModel.selectedInsurance) {
                                 ForEach(viewModel.insurance!, id: \.self) { insurance in
-                                    Text(insurance.name).tag(insurance as Insurance?)
+                                    Text(insurance.name)
+                                        .tag(insurance as Insurance?)
                                 }
                             }.pickerStyle(SegmentedPickerStyle()).colorMultiply(Color(.aokGreen!)).onChange(of: viewModel.selectedInsurance) { _ in
                                 guard viewModel.selectedInsurance?.name == nil else {
                                     viewModel.selected = .insurance
-                                    viewModel.afterPickingSomething()
+                                    viewModel.changeAfterPickingSomething()
                                     return
                                 }
                             }
@@ -46,15 +49,20 @@ struct SelectionView: View {
                     Spacer(minLength: 30)
                     if viewModel.selected == .insurance || viewModel.selected == .useCase || viewModel.selected == .testCase {
                         VStack {
-                            Text("Select UseCase:")
+                            Text(TextSelection.selectUseCase)
 
                             Picker("", selection: $viewModel.selectedUseCase) {
                                 ForEach(viewModel.useCase!, id: \.self) { useCase in
-                                    Text(useCase.name).tag(useCase as UseCase?)
-                                }}.pickerStyle(SegmentedPickerStyle()).colorMultiply(Color(.aokGreen!)).onChange(of: viewModel.selectedUseCase) { _ in
+                                    Text(useCase.name)
+                                        .tag(useCase as UseCase?)
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                            .colorMultiply(Color(.aokGreen!))
+                            .onChange(of: viewModel.selectedUseCase) { _ in
                                     guard viewModel.selectedUseCase?.name == nil else {
                                         viewModel.selected = .useCase
-                                        viewModel.afterPickingSomething()
+                                        viewModel.changeAfterPickingSomething()
                                     return
                                 }
                             }
@@ -63,25 +71,42 @@ struct SelectionView: View {
                     Spacer(minLength: 30)
                     if viewModel.selected == .useCase || viewModel.selected == .testCase {
                         VStack {
-                            Text("Select TestCase:")
+                            Text(TextSelection.selectTestCase)
                             Picker("", selection: $viewModel.selectedtestCase) {
                                 ForEach(viewModel.testCase!, id: \.self) { testCase in
-                                    Text(testCase.name).tag(testCase as TestCase?)
+                                    Text(testCase.name)
+                                        .tag(testCase as TestCase?)
                                 }
-                            }.pickerStyle(SegmentedPickerStyle()).colorMultiply(Color(.aokGreen!)).onChange(of: viewModel.selectedtestCase) { _ in
+                            }.pickerStyle(SegmentedPickerStyle())
+                                .colorMultiply(Color(.aokGreen!))
+                                .onChange(of: viewModel.selectedtestCase) { _ in
                                 guard viewModel.selectedtestCase == nil else {
                                     viewModel.selected = .testCase
-                                    viewModel.afterPickingSomething()
+                                    viewModel.changeAfterPickingSomething()
                                 return
                                 }
                             }
+                        }
+                    }
+                    Spacer(minLength: 30)
+                    if viewModel.selected == .testCase {
+                        VStack {
+                            Button("Confirm") {
+                                viewModel.makelink()
+                                isready = true
+                            }
+                                .padding(5)
+                                .background(Color(.aokGreen!))
+                                .foregroundColor(Color(.aokBlack!))
+                                .cornerRadius(10).sheet(isPresented: $isready) {
+                                    SplashScreen()                                }
                         }
                     }
                 }
             }.task {
                 viewModel.loadJson(filename: "config")
             }
-        }.navigationTitle("\(viewModel.aplications.first?.name ?? "") is Selected").embedInNavigation()
+        }.navigationTitle( viewModel.aplications.first?.name ?? "" + TextSelection.isSelected).embedInNavigation()
     }
 
 }

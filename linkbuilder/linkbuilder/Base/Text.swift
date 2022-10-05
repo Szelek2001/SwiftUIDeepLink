@@ -1,0 +1,23 @@
+//
+//  Text.swift
+//  linkbuilder
+//
+//  Created by Axxiome Health on 05/10/2022.
+//
+
+import Foundation
+
+enum TextMain {
+    static let selection = "Selection"
+    static let settings = "Settings"
+    static let new = "Add new"
+    static let history = "History"
+}
+enum TextSelection {
+    static let selectEnviroment = "Select Enviroment"
+    static let selectInsurance = "Select Insurance:"
+    static let selectUseCase = "Select UseCase:"
+    static let selectTestCase = "Select TestCase:"
+    static let confirm = "Confirm"
+    static let isSelected = "is Selected"
+}
