@@ -21,3 +21,8 @@ enum TextSelection {
     static let confirm = "Confirm"
     static let isSelected = "is Selected"
 }
+enum TextURL {
+    static let copy = "copy"
+    static let save = "save"
+    static let currentUrl = "Current URL :  "
+}

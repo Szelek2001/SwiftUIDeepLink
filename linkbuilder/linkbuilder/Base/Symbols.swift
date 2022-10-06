@@ -12,4 +12,6 @@ enum Symbols {
     static let checklist =  Image(systemName: "checklist")
     static let new = Image(systemName: "doc.badge.plus")
     static let history = Image(systemName: "clock.arrow.circlepath")
+    static let save = Image(systemName: "square.and.arrow.down")
+    static let copy = Image(systemName: "doc.on.doc")
 }
