@@ -23,14 +23,17 @@ struct SelectionView: View {
                             ForEach(viewModel.backendEnvironment, id: \.self) { enviroment in
                                 Text(enviroment.name)
                                     .tag(enviroment as BackendEnviroment?)
+
                             }
-                        }.pickerStyle(SegmentedPickerStyle()).colorMultiply(Color(.aokGreen!)).onChange(of: viewModel.selectedEnvironment) { _ in
+                        }.pickerStyle(SegmentedPickerStyle())
+                            .colorMultiply(Color(.aokGreen!))
+                            .onChange(of: viewModel.selectedEnvironment) { _ in
                             viewModel.selected = .enviroment
                             viewModel.changeAfterPickingSomething()
                             }
                          }
                     Spacer(minLength: 30)
-                    if viewModel.selected == .enviroment || viewModel.selected == .insurance || viewModel.selected == .useCase || viewModel.selected == .testCase{
+                    if viewModel.selected == .enviroment || viewModel.selected == .insurance || viewModel.selected == .useCase || viewModel.selected == .testCase {
                         VStack {
                             Text(TextSelection.selectInsurance)
                             Picker("", selection: $viewModel.selectedInsurance) {
@@ -38,7 +41,9 @@ struct SelectionView: View {
                                     Text(insurance.name)
                                         .tag(insurance as Insurance?)
                                 }
-                            }.pickerStyle(SegmentedPickerStyle()).colorMultiply(Color(.aokGreen!)).onChange(of: viewModel.selectedInsurance) { _ in
+                            }.pickerStyle(SegmentedPickerStyle())
+                                .colorMultiply(Color(.aokGreen!))
+                                .onChange(of: viewModel.selectedInsurance) { _ in
                                 guard viewModel.selectedInsurance?.name == nil else {
                                     viewModel.selected = .insurance
                                     viewModel.changeAfterPickingSomething()
@@ -91,21 +96,18 @@ struct SelectionView: View {
                     Spacer(minLength: 30)
                     if viewModel.selected == .testCase {
                         VStack {
-                            Button("Confirm") {
+                            MyButton(
+                                text: TextSelection.confirm                            ) {
                                 viewModel.makelink()
                                 isready = true
-                            }
-                                .padding(5)
-                                .background(Color(.aokGreen!))
-                                .foregroundColor(Color(.aokBlack!))
-                                .cornerRadius(10).sheet(isPresented: $isready) {
-                                    SplashScreen()                                }
+                            }.sheet(isPresented: $isready) {
+                                URLView(viewModel: URLViewModel(), urlLink: ":)")                                }
                         }
                     }
                 }
             }.task {
                 viewModel.loadJson(filename: "config")
-            }
+            }.padding(10)
         }.navigationTitle( viewModel.aplications.first?.name ?? "" + TextSelection.isSelected).embedInNavigation()
     }
 

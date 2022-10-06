@@ -50,7 +50,6 @@ class SelectionViewModel: ObservableObject {
         }
     }
     func makelink() {
-        
     }
 }
 enum Selected {
