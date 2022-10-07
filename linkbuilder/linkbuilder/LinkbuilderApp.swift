@@ -27,7 +27,7 @@ struct LinkbuilderApp: App {
                     Symbols.new
                         Text(TextMain.new)
                 }
-                SplashScreen()
+                HistoryView()
                     .tabItem {
                     Symbols.history
                         Text(TextMain.history)

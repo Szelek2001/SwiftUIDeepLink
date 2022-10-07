@@ -14,4 +14,5 @@ enum Symbols {
     static let history = Image(systemName: "clock.arrow.circlepath")
     static let save = Image(systemName: "square.and.arrow.down")
     static let copy = Image(systemName: "doc.on.doc")
+    static let refresh = Image(systemName: "arrow.clockwise")
 }
