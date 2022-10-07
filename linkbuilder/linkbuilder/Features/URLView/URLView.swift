@@ -18,13 +18,12 @@ struct URLView: View {
                     text: TextURL.copy,
                     icon: Symbols.copy
                 ) {
-                    print("Copy")
-                }
+                    viewModel.saveToHistory(url: "plis")                }
                 MyButton(
                     text: TextURL.save,
                     icon: Symbols.save
                 ) {
-                    viewModel.writeToClipboard(text: urlLink)
+                    viewModel.writeToClipboard(url: urlLink)
                 }
             }
 
