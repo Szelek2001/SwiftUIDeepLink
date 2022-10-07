@@ -9,14 +9,16 @@ import Foundation
 
 class SelectionViewModel: ObservableObject {
     @Published private(set) var backendEnvironment: [BackendEnviroment] = []
-    @Published  var insurance: [Insurance]?
-    @Published  var useCase: [UseCase]?
-    @Published  var testCase: [TestCase]?
-    @Published  var selectedEnvironment: BackendEnviroment?
-    @Published  var selectedInsurance: Insurance?
-    @Published  var selectedUseCase: UseCase?
-    @Published  var selectedtestCase: TestCase?
-    @Published  var selected: Selected = .aplication
+    @Published private(set) var insurance: [Insurance]?
+    @Published private(set)  var useCase: [UseCase]?
+    @Published private(set) var testCase: [TestCase]?
+    @Published private(set)  var useCases: [UseCase]?
+    @Published var selectedEnvironment: BackendEnviroment?
+    @Published var selectedInsurance: Insurance?
+    @Published var selectedUseCase: UseCase?
+    @Published var selectedTestCase: TestCase?
+    @Published var selectedLink: SelectedLink = .nothing
+    @Published var selectedApp: Selected = .app
     @Published private(set) var aplications: [Config] = []
     func loadJson(filename fileName: String) {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
@@ -33,29 +35,36 @@ class SelectionViewModel: ObservableObject {
         }
     }
     func changeAfterPickingSomething() {
-        switch selected {
-        case .aplication:
-            ()
+        switch selectedLink {
         case .enviroment:
             insurance = selectedEnvironment?.insurance ?? []
             selectedUseCase = nil
             selectedInsurance = nil
         case .insurance:
             selectedUseCase = nil
-            selectedtestCase = nil
+            selectedTestCase = nil
         case .useCase:
             testCase = selectedUseCase?.testCase ?? []
         case .testCase:
             ()
+        default: ()
         }
     }
-    func makelink() {
+    func makelink() -> String {
+        return "https://\(selectedInsurance!.subdomain)-\(selectedEnvironment!.name)-"
+        + "\(selectedEnvironment!.staticPath)/\((selectedUseCase!.actions?.first)!)?\(selectedTestCase!.param)"
     }
 }
-enum Selected {
-    case aplication
+enum SelectedLink {
+    case nothing
     case enviroment
     case insurance
     case useCase
     case testCase
+}
+
+enum Selected {
+    case app
+    case appToApp
+    case universalLinks
 }

@@ -20,7 +20,6 @@ class URLViewModel: ObservableObject {
         }
         history.insert( url, at: 0)
         UserDefaults.standard.set(history, forKey: "history")
-        print(history)
     }
 
 }

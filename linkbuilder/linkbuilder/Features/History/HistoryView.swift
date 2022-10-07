@@ -14,16 +14,17 @@ struct HistoryView: View {
             List {
                 ForEach(viewModel.history, id: \.self) {
                     Text($0)
-                }
+            }
             }
             .toolbar {ToolbarItem(placement: .navigationBarTrailing) {
                 refresh
             }
             }.navigationTitle("History")
                 .refreshable {
-                await viewModel.reload()
-            }
-        }}
+                    await viewModel.reload()
+                }
+        }
+    }
     var refresh: some View {
         Button {
             Task {
@@ -32,7 +33,7 @@ struct HistoryView: View {
         } label: {
             Symbols.refresh.colorMultiply(Color(.aokGreen!))
         }
-        }
+    }
 }
 
 struct HistoryView_Previews: PreviewProvider {

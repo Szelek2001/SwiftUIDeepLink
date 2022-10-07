@@ -11,22 +11,26 @@ struct URLView: View {
     @StateObject var viewModel: URLViewModel
     @State var urlLink: String
     var body: some View {
-        VStack {
-            Text(urlLink).padding()
-            HStack {
-                MyButton(
-                    text: TextURL.copy,
-                    icon: Symbols.copy
-                ) {
-                    viewModel.saveToHistory(url: "plis")                }
-                MyButton(
-                    text: TextURL.save,
-                    icon: Symbols.save
-                ) {
-                    viewModel.writeToClipboard(url: urlLink)
+        ZStack {
+            Color(.aokGray1!).ignoresSafeArea(edges: .top)
+            SplashScreen().opacity(0.2)
+            VStack {
+                Text(urlLink).padding()
+                HStack {
+                    MyButton(
+                        text: TextURL.copy,
+                        icon: Symbols.copy
+                    ) {
+                        viewModel.writeToClipboard(url: urlLink)
+                    }
+                    MyButton(
+                        text: TextURL.save,
+                        icon: Symbols.save
+                    ) {
+                        viewModel.saveToHistory(url: urlLink)
+                    }
                 }
             }
-
         }.navigationTitle(TextURL.currentUrl).embedInNavigation()
     }
 }
