@@ -50,7 +50,7 @@ class SelectionViewModel: ObservableObject {
         default: ()
         }
     }
-    func makelink() -> String {
+    func makelinkUniversal() -> String {
         return "https://\(selectedInsurance!.subdomain)-\(selectedEnvironment!.name)-"
         + "\(selectedEnvironment!.staticPath)/\((selectedUseCase!.actions?.first)!)?\(selectedTestCase!.param)"
     }
@@ -66,5 +66,5 @@ enum SelectedLink {
 enum Selected {
     case app
     case appToApp
-    case universalLinks
+    case universalLink
 }

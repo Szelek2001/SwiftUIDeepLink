@@ -12,20 +12,24 @@ struct SelectionView: View {
     var body: some View {
         ZStack {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
-            SplashScreen().opacity(0.2)
+            SplashScreen().opacity(Costant.splashScreenOpacity)
             ScrollView {
                 Spacer(minLength: 30)
                 Picker("", selection: $viewModel.selectedApp) {
-                    Text("App-to-APP").tag(Selected.appToApp)
-                    Text("Universal").tag(Selected.universalLinks)
+                    Text(TextSelection.appToApp).tag(Selected.appToApp)
+                    Text(TextSelection.universalLink).tag(Selected.universalLink)
                 }.pickerStyle(SegmentedPickerStyle())
                     .colorMultiply(Color(.aokGreen!))
-                if viewModel.selectedApp == .universalLinks {
-                    UniversalLinkView(viewModel: viewModel)}
+                if viewModel.selectedApp == .universalLink {
+                    UniversalLinkView(viewModel: viewModel)
+                }
+                if viewModel.selectedApp == .appToApp {
+                    AppToAppView(viewModel: viewModel)
+                }
             }.task {
                 viewModel.loadJson(filename: "config")
             }.padding(10)
-        }.navigationTitle( viewModel.aplications.first?.name ?? "" + TextSelection.isSelected).embedInNavigation()
+        }.navigationTitle( viewModel.aplications.first?.name ?? "" + TextSelectionLinks.isSelected).embedInNavigation()
     }
 
 }
@@ -37,3 +41,5 @@ struct SelectionView_Previews: PreviewProvider {
 }
 
 // zapytaj jak ex zrobic
+
+

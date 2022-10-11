@@ -15,4 +15,5 @@ enum Symbols {
     static let save = Image(systemName: "square.and.arrow.down")
     static let copy = Image(systemName: "doc.on.doc")
     static let refresh = Image(systemName: "arrow.clockwise")
+    static let modification = Image(systemName: "pencil.line")
 }

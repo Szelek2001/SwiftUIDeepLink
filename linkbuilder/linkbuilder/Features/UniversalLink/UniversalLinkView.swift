@@ -13,7 +13,7 @@ struct UniversalLinkView: View {
     var body: some View {
         VStack {
             VStack {
-                Text(TextSelection.selectEnviroment)
+                Text(TextSelectionLinks.selectEnviroment)
                 Picker("", selection: $viewModel.selectedEnvironment) {
                     ForEach(viewModel.backendEnvironment, id: \.self) { enviroment in
                         Text(enviroment.name)
@@ -29,7 +29,7 @@ struct UniversalLinkView: View {
             Spacer(minLength: 30)
             if viewModel.selectedLink == .enviroment || viewModel.selectedLink == .insurance || viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
                 VStack {
-                    Text(TextSelection.selectInsurance)
+                    Text(TextSelectionLinks.selectInsurance)
                     Picker("", selection: $viewModel.selectedInsurance) {
                         ForEach(viewModel.insurance!, id: \.self) { insurance in
                             Text(insurance.name)
@@ -48,7 +48,7 @@ struct UniversalLinkView: View {
             Spacer(minLength: 30)
             if viewModel.selectedLink == .insurance || viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
                 VStack {
-                    Text(TextSelection.selectUseCase)
+                    Text(TextSelectionLinks.selectUseCase)
 
                     Picker("", selection: $viewModel.selectedUseCase) {
                         ForEach(viewModel.useCase!, id: \.self) { useCase in
@@ -70,7 +70,7 @@ struct UniversalLinkView: View {
             Spacer(minLength: 30)
             if viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
                 VStack {
-                    Text(TextSelection.selectTestCase)
+                    Text(TextSelectionLinks.selectTestCase)
                     Picker("", selection: $viewModel.selectedTestCase) {
                         ForEach(viewModel.testCase!, id: \.self) { testCase in
                             Text(testCase.name)
@@ -90,10 +90,10 @@ struct UniversalLinkView: View {
             Spacer(minLength: 30)
             if viewModel.selectedLink == .testCase {
                 VStack {
-                    MyButton(text: TextSelection.confirm ) {
+                    MyButton(text: TextSelectionLinks.confirm ) {
                         URLLinkIsShow = true
                     }.sheet(isPresented: $URLLinkIsShow) {
-                        URLView(viewModel: URLViewModel(), urlLink: viewModel.makelink())
+                        URLView(viewModel: URLViewModel(), urlLink: viewModel.makelinkUniversal())
                     }
                 }
             }

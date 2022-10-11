@@ -10,16 +10,19 @@ import SwiftUI
 struct URLView: View {
     @StateObject var viewModel: URLViewModel
     @State var urlLink: String
+    @State var editDisable: Bool = true
     var body: some View {
         ZStack {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
             SplashScreen().opacity(0.2)
             VStack {
-                Text(urlLink).padding()
+                Spacer()
+                TextEditor(text: $urlLink).disabled(editDisable).padding()
+                Spacer()
                 HStack {
                     MyButton(
                         text: TextURL.copy,
-                        icon: Symbols.copy
+                    icon: Symbols.copy
                     ) {
                         viewModel.writeToClipboard(url: urlLink)
                     }
@@ -29,7 +32,15 @@ struct URLView: View {
                     ) {
                         viewModel.saveToHistory(url: urlLink)
                     }
+                    MyButton(
+                        text: TextURL.modification,
+                        icon: Symbols.modification
+                    ) {
+                        editDisable.toggle()
+                    }
                 }
+                Spacer()
+
             }
         }.navigationTitle(TextURL.currentUrl).embedInNavigation()
     }
