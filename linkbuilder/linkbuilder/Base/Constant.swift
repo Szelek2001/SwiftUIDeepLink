@@ -30,8 +30,17 @@ enum TextURL {
     static let save = "save"
     static let currentUrl = "Current URL :  "
     static let modification = "Modification"
+    static let alertIncorrectUrl = "The address is incorrect, do you want to add it?"
+    static let cancel = "Cancel"
+    static let add = "Add"
 }
-
+enum TextHistory {
+    static let openSite = "Open site"
+    static let delate = "Delate"
+    static let notURL = "This is not a URL"
+    static let ok = "OK"
+    static let history = "History"
+}
 enum Costant {
     static let splashScreenOpacity = 0.2
 }

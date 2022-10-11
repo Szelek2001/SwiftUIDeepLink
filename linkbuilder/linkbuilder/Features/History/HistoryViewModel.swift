@@ -9,15 +9,21 @@ import Foundation
 import UIKit
 
 class HistoryViewModel: ObservableObject {
+    enum URLError: Error {
+        case badURL
+    }
     @Published private(set) var history: [String] = UserDefaults.standard.stringArray(forKey: "history") ?? []
     @MainActor
     func reload() async {
         history = UserDefaults.standard.stringArray(forKey: "history") ?? []
     }
-    func opensite(site: String) {
-        guard let url = URL(string: site) else {
-            return
+    func openURL(urlString: String) throws {
+        if verifyUrl(urlString: urlString) == false {
+            throw URLError.badURL
         }
+        guard let url = URL(string: urlString) else {
+            throw URLError.badURL }
+
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
@@ -29,6 +35,14 @@ class HistoryViewModel: ObservableObject {
         let number = history.firstIndex(of: url)
         history.remove(at: number!)
         UserDefaults.standard.set(history, forKey: "history")
+    }
+    private func verifyUrl (urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+        }
+        return false
     }
 
 }

@@ -41,5 +41,3 @@ struct SelectionView_Previews: PreviewProvider {
 }
 
 // zapytaj jak ex zrobic
-
-

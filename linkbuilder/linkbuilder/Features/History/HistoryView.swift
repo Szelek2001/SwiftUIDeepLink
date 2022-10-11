@@ -9,17 +9,22 @@ import SwiftUI
 
 struct HistoryView: View {
     @ObservedObject var viewModel: HistoryViewModel = HistoryViewModel()
+    @State private var showingBadURLAlert = false
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.history, id: \.self) { url in
                     Text(url)
                         .swipeActions(edge: .trailing) {
-                        Button {
-                            viewModel.opensite(site: url)
+                            Button {
+                                do {
+                                    try viewModel.openURL(urlString: url)
+                                } catch {
+                                    showingBadURLAlert = true
+                                }
                             }
                         label: {
-                            Text("open site")
+                            Text(TextHistory.openSite)
                             }
                         .tint(Color(.aokGreen!))
                             }
@@ -31,16 +36,19 @@ struct HistoryView: View {
                                 }
                             }
                         label: {
-                            Text("delate")}
+                            Text(TextHistory.ok)}
                         }
                         .tint(Color(.aokRed!))
                 }
             }
+            .alert(TextHistory.notURL, isPresented: $showingBadURLAlert) {
+                Button(TextHistory.ok, role: .cancel) { }
+                    }
             .toolbar {ToolbarItem(
                 placement: .navigationBarTrailing) {
                 refresh
-            }
-            }.navigationTitle("History")
+                }
+            }.navigationTitle(TextHistory.history)
                 .refreshable {
                     await viewModel.reload()
                 }

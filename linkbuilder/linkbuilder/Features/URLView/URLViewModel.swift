@@ -21,5 +21,13 @@ class URLViewModel: ObservableObject {
         history.insert( url, at: 0)
         UserDefaults.standard.set(history, forKey: "history")
     }
+    func verifyUrl (urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+        }
+        return false
+    }
 
 }

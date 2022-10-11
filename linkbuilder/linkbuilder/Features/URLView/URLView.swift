@@ -11,6 +11,7 @@ struct URLView: View {
     @StateObject var viewModel: URLViewModel
     @State var urlLink: String
     @State var editDisable: Bool = true
+    @State var isIncorrectURL: Bool = false
     var body: some View {
         ZStack {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
@@ -30,7 +31,11 @@ struct URLView: View {
                         text: TextURL.save,
                         icon: Symbols.save
                     ) {
-                        viewModel.saveToHistory(url: urlLink)
+                        if viewModel.verifyUrl(urlString: urlLink) {
+                            viewModel.saveToHistory(url: urlLink)
+                        } else {
+                            isIncorrectURL = true
+                        }
                     }
                     MyButton(
                         text: TextURL.modification,
@@ -38,6 +43,9 @@ struct URLView: View {
                     ) {
                         editDisable.toggle()
                     }
+                }.alert(TextURL.alertIncorrectUrl, isPresented: $isIncorrectURL) {
+                    Button(TextURL.cancel, role: .cancel) { }
+                    Button(TextURL.add) { viewModel.saveToHistory(url: urlLink) }
                 }
                 Spacer()
 
