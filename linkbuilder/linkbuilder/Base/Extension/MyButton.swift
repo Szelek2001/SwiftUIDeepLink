@@ -9,6 +9,7 @@ import SwiftUI
 struct MyButton: View {
     var text: String
     var icon: Image?
+    var isDisable: Bool = true
     var clicked: (() -> Void)
     var body: some View {
         Button(action: clicked) {
@@ -18,11 +19,15 @@ struct MyButton: View {
             }
             .padding(10)
             .frame(minHeight: 45)
-            .background(Color(.aokGreen!))
+            .background(buttonbackColor)
             .foregroundColor(Color(.aokWhite!))
             .cornerRadius(10)
             .aspectRatio(contentMode: .fit)
             .scaledToFit()
+            .disabled(isDisable)
         }
     }
+    var buttonbackColor: Color {
+        return isDisable ? Color(.aokGreen!) : Color(.aokGray2!)
+        }
 }

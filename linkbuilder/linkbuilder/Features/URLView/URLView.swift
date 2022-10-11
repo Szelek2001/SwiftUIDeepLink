@@ -18,18 +18,21 @@ struct URLView: View {
             SplashScreen().opacity(0.2)
             VStack {
                 Spacer()
-                TextEditor(text: $urlLink).disabled(editDisable).padding()
+                TextEditor(text: $urlLink)
+                    .disabled(editDisable).colorMultiply(editDisable ?  Color(.aokGray1!) : Color(.aokWhite!)).padding()
                 Spacer()
                 HStack {
                     MyButton(
                         text: TextURL.copy,
-                    icon: Symbols.copy
+                        icon: Symbols.copy,
+                        isDisable: editDisable
                     ) {
                         viewModel.writeToClipboard(url: urlLink)
                     }
                     MyButton(
                         text: TextURL.save,
-                        icon: Symbols.save
+                        icon: Symbols.save,
+                        isDisable: editDisable
                     ) {
                         if viewModel.verifyUrl(urlString: urlLink) {
                             viewModel.saveToHistory(url: urlLink)
