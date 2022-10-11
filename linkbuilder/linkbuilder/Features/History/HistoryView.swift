@@ -12,11 +12,32 @@ struct HistoryView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.history, id: \.self) {
-                    Text($0)
+                ForEach(viewModel.history, id: \.self) { url in
+                    Text(url)
+                        .swipeActions(edge: .trailing) {
+                        Button {
+                            viewModel.opensite(site: url)
+                            }
+                        label: {
+                            Text("open site")
+                            }
+                        .tint(Color(.aokGreen!))
+                            }
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                Task {
+                                viewModel.delateToHistory(url: url)
+                                await viewModel.reload()
+                                }
+                            }
+                        label: {
+                            Text("delate")}
+                        }
+                        .tint(Color(.aokRed!))
+                }
             }
-            }
-            .toolbar {ToolbarItem(placement: .navigationBarTrailing) {
+            .toolbar {ToolbarItem(
+                placement: .navigationBarTrailing) {
                 refresh
             }
             }.navigationTitle("History")
