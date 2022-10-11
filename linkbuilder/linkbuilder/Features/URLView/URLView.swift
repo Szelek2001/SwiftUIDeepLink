@@ -19,7 +19,8 @@ struct URLView: View {
             VStack {
                 Spacer()
                 TextEditor(text: $urlLink)
-                    .disabled(editDisable).colorMultiply(editDisable ?  Color(.aokGray1!) : Color(.aokWhite!)).padding()
+                    .disabled(editDisable).colorMultiply(editDisable ?  Color(.aokGray1!) : Color(.aokWhite!))
+                    .padding()
                 Spacer()
                 HStack {
                     MyButton(
@@ -50,8 +51,7 @@ struct URLView: View {
                     Button(TextURL.cancel, role: .cancel) { }
                     Button(TextURL.add) { viewModel.saveToHistory(url: urlLink) }
                 }
-                Spacer()
-
+                Spacer(minLength: 30)
             }
         }.navigationTitle(TextURL.currentUrl).embedInNavigation()
     }

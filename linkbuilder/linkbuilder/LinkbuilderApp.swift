@@ -22,7 +22,7 @@ struct LinkbuilderApp: App {
                     Symbols.gear
                         Text(TextMain.settings)
                 }
-                SplashScreen()
+                URLView(viewModel: URLViewModel(), urlLink: TextMain.addYourText)
                     .tabItem {
                     Symbols.new
                         Text(TextMain.new)

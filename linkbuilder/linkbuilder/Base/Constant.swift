@@ -12,6 +12,7 @@ enum TextMain {
     static let settings = "Settings"
     static let new = "Add new"
     static let history = "History"
+    static let addYourText = "Tap modification and write your link!"
 }
 enum TextSelection {
     static let appToApp = "App to App"

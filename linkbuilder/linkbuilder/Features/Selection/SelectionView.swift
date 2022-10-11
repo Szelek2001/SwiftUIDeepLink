@@ -14,12 +14,12 @@ struct SelectionView: View {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
             SplashScreen().opacity(Costant.splashScreenOpacity)
             ScrollView {
-                Spacer(minLength: 30)
                 Picker("", selection: $viewModel.selectedApp) {
                     Text(TextSelection.appToApp).tag(Selected.appToApp)
                     Text(TextSelection.universalLink).tag(Selected.universalLink)
                 }.pickerStyle(SegmentedPickerStyle())
                     .colorMultiply(Color(.aokGreen!))
+                Spacer(minLength: 30)
                 if viewModel.selectedApp == .universalLink {
                     UniversalLinkView(viewModel: viewModel)
                 }

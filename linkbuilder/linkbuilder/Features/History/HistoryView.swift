@@ -36,7 +36,7 @@ struct HistoryView: View {
                                 }
                             }
                         label: {
-                            Text(TextHistory.ok)}
+                            Text(TextHistory.delate)}
                         }
                         .tint(Color(.aokRed!))
                 }
