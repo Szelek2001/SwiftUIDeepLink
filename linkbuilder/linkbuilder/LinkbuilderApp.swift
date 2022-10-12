@@ -17,11 +17,6 @@ struct LinkbuilderApp: App {
                     Symbols.checklist
                         Text(TextMain.selection)
             }
-                SplashScreen()
-                    .tabItem {
-                    Symbols.gear
-                        Text(TextMain.settings)
-                }
                 URLView(viewModel: URLViewModel(), urlLink: TextMain.addYourText)
                     .tabItem {
                     Symbols.new
@@ -31,6 +26,11 @@ struct LinkbuilderApp: App {
                     .tabItem {
                     Symbols.history
                         Text(TextMain.history)
+                }
+                SplashScreen()
+                    .tabItem {
+                    Symbols.gear
+                        Text(TextMain.settings)
                 }
             }
         }

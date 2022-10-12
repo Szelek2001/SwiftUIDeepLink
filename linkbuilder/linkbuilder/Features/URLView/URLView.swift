@@ -12,6 +12,7 @@ struct URLView: View {
     @State var urlLink: String
     @State var editDisable: Bool = true
     @State var isIncorrectURL: Bool = false
+    @State private var showingBadURLAlert = false
     var body: some View {
         ZStack {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
@@ -23,6 +24,19 @@ struct URLView: View {
                     .padding()
                 Spacer()
                 HStack {
+                    MyButton(
+                        text: TextURL.goToLink,
+                        icon: Symbols.goToLink,
+                        isDisable: editDisable
+                    ) {
+                        do {
+                            try viewModel.openURL(urlString: urlLink)
+                        } catch {
+                            showingBadURLAlert = true
+                        }
+                    }.alert(TextHistory.notURL, isPresented: $showingBadURLAlert) {
+                        Button(TextHistory.ok, role: .cancel) { }
+                            }
                     MyButton(
                         text: TextURL.copy,
                         icon: Symbols.copy,
@@ -41,19 +55,25 @@ struct URLView: View {
                             isIncorrectURL = true
                         }
                     }
-                    MyButton(
-                        text: TextURL.modification,
-                        icon: Symbols.modification
-                    ) {
-                        editDisable.toggle()
-                    }
-                }.alert(TextURL.alertIncorrectUrl, isPresented: $isIncorrectURL) {
-                    Button(TextURL.cancel, role: .cancel) { }
-                    Button(TextURL.add) { viewModel.saveToHistory(url: urlLink) }
                 }
                 Spacer(minLength: 30)
+            }.padding(20)
+        }.toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                modification
+            }}.navigationTitle(TextURL.currentUrl).embedInNavigation()
+    }
+    var modification: some View {
+        Button {
+            Task {
+                editDisable.toggle()
             }
-        }.navigationTitle(TextURL.currentUrl).embedInNavigation()
+        } label: {
+            Symbols.modification.colorMultiply(Color(.aokGreen!))
+        }.alert(TextURL.alertIncorrectUrl, isPresented: $isIncorrectURL) {
+            Button(TextURL.cancel, role: .cancel) { }
+            Button(TextURL.add) { viewModel.saveToHistory(url: urlLink) }
+        }
     }
 }
 

@@ -44,8 +44,8 @@ struct HistoryView: View {
             .alert(TextHistory.notURL, isPresented: $showingBadURLAlert) {
                 Button(TextHistory.ok, role: .cancel) { }
                     }
-            .toolbar {ToolbarItem(
-                placement: .navigationBarTrailing) {
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
                 refresh
                 }
             }.navigationTitle(TextHistory.history)

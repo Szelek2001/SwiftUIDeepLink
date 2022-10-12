@@ -17,8 +17,11 @@ class SelectionViewModel: ObservableObject {
     @Published var selectedInsurance: Insurance?
     @Published var selectedUseCase: UseCase?
     @Published var selectedTestCase: TestCase?
+    @Published var selectedUseCases: UseCase?
     @Published var selectedLink: SelectedLink = .nothing
     @Published var selectedApp: Selected = .app
+    @Published var selectedAppToApp: SelectedAppToApp = .nothing
+    
     @Published private(set) var aplications: [Config] = []
     func loadJson(filename fileName: String) {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
@@ -29,6 +32,7 @@ class SelectionViewModel: ObservableObject {
                 backendEnvironment = jsonData.config.first!.universalLink.backendEnviroment
                 aplications = jsonData.config
                 useCase = jsonData.config.first!.universalLink.useCase
+                useCases = jsonData.config.first!.appToApp.useCase
             } catch {
                 print("error:\(error)")
             }
@@ -54,6 +58,9 @@ class SelectionViewModel: ObservableObject {
         return "https://\(selectedInsurance!.subdomain)-\(selectedEnvironment!.name)-"
         + "\(selectedEnvironment!.staticPath)/\((selectedUseCase!.actions?.first)!)?\(selectedTestCase!.param)"
     }
+    func makelinkAppToApp() -> String {
+        return "https://\(aplications.first!.appToApp.staticPath)\(( selectedUseCases!.action)!)"
+    }
 }
 enum SelectedLink {
     case nothing
@@ -62,9 +69,12 @@ enum SelectedLink {
     case useCase
     case testCase
 }
-
 enum Selected {
     case app
     case appToApp
     case universalLink
+}
+enum SelectedAppToApp {
+    case nothing
+    case usecases
 }

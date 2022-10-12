@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 class URLViewModel: ObservableObject {
+    enum URLError: Error {
+        case badURL
+    }
     func writeToClipboard(url clipboard: String ) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = clipboard
@@ -29,5 +32,17 @@ class URLViewModel: ObservableObject {
         }
         return false
     }
+    func openURL(urlString: String) throws {
+        if verifyUrl(urlString: urlString) == false {
+            throw URLError.badURL
+        }
+        guard let url = URL(string: urlString) else {
+            throw URLError.badURL }
 
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
 }

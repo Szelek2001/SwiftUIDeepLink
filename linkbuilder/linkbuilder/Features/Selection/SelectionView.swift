@@ -14,12 +14,15 @@ struct SelectionView: View {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
             SplashScreen().opacity(Costant.splashScreenOpacity)
             ScrollView {
-                Picker("", selection: $viewModel.selectedApp) {
-                    Text(TextSelection.appToApp).tag(Selected.appToApp)
-                    Text(TextSelection.universalLink).tag(Selected.universalLink)
-                }.pickerStyle(SegmentedPickerStyle())
-                    .colorMultiply(Color(.aokGreen!))
-                Spacer(minLength: 30)
+                VStack {
+                    Text(TextSelection.selectType)
+                    Picker("", selection: $viewModel.selectedApp) {
+                        Text(TextSelection.appToApp).tag(Selected.appToApp)
+                        Text(TextSelection.universalLink).tag(Selected.universalLink)
+                    }.pickerStyle(SegmentedPickerStyle())
+                        .colorMultiply(Color(.aokGreen!))
+                    Spacer(minLength: 30)
+                }
                 if viewModel.selectedApp == .universalLink {
                     UniversalLinkView(viewModel: viewModel)
                 }
@@ -28,8 +31,8 @@ struct SelectionView: View {
                 }
             }.task {
                 viewModel.loadJson(filename: "config")
-            }.padding(10)
-        }.navigationTitle( viewModel.aplications.first?.name ?? "" + TextSelectionLinks.isSelected).embedInNavigation()
+            }.padding(20)
+        }.navigationTitle((viewModel.aplications.first?.name ?? "") + TextSelectionLinks.isSelected).embedInNavigation()
     }
 
 }

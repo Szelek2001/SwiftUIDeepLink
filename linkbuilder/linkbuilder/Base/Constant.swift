@@ -17,14 +17,15 @@ enum TextMain {
 enum TextSelection {
     static let appToApp = "App to App"
     static let universalLink = "Universal Link"
+    static let selectType = "Select type: "
 }
 enum TextSelectionLinks {
-    static let selectEnviroment = "Select Enviroment"
+    static let selectEnviroment = "Select Enviroment:"
     static let selectInsurance = "Select Insurance:"
     static let selectUseCase = "Select UseCase:"
     static let selectTestCase = "Select TestCase:"
     static let confirm = "Confirm"
-    static let isSelected = "is Selected"
+    static let isSelected = " is selected"
 }
 enum TextURL {
     static let copy = "copy"
@@ -34,6 +35,7 @@ enum TextURL {
     static let alertIncorrectUrl = "The address is incorrect, do you want to add it?"
     static let cancel = "Cancel"
     static let add = "Add"
+    static let goToLink = "run"
 }
 enum TextHistory {
     static let openSite = "Open site"
