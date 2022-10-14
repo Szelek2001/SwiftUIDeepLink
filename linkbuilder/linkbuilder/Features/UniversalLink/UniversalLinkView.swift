@@ -15,7 +15,7 @@ struct UniversalLinkView: View {
             VStack {
                 Text(TextSelectionLinks.selectEnviroment)
                 Picker("", selection: $viewModel.selectedEnvironment) {
-                    ForEach(viewModel.backendEnvironment, id: \.self) { enviroment in
+                    ForEach(viewModel.backendEnvironment!, id: \.self) { enviroment in
                         Text(enviroment.name)
                             .tag(enviroment as BackendEnviroment?)
                     }
@@ -38,7 +38,7 @@ struct UniversalLinkView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                         .colorMultiply(Color(.aokGreen!))
                         .onChange(of: viewModel.selectedInsurance) { _ in
-                        guard viewModel.selectedInsurance?.name == nil else {
+                        guard viewModel.selectedInsurance == nil else {
                             viewModel.selectedLink = .insurance
                             viewModel.changeAfterPickingSomething()
                             return
@@ -59,7 +59,7 @@ struct UniversalLinkView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .colorMultiply(Color(.aokGreen!))
                     .onChange(of: viewModel.selectedUseCase) { _ in
-                            guard viewModel.selectedUseCase?.name == nil else {
+                            guard viewModel.selectedUseCase == nil else {
                                 viewModel.selectedLink = .useCase
                                 viewModel.changeAfterPickingSomething()
                             return

@@ -8,7 +8,7 @@
 import Foundation
 
 class SelectionViewModel: ObservableObject {
-    @Published private(set) var backendEnvironment: [BackendEnviroment] = []
+    @Published private(set) var backendEnvironment: [BackendEnviroment]?
     @Published private(set) var insurance: [Insurance]?
     @Published private(set)  var useCase: [UseCase]?
     @Published private(set) var testCase: [TestCase]?
@@ -21,10 +21,15 @@ class SelectionViewModel: ObservableObject {
     @Published var selectedLink: SelectedLink = .nothing
     @Published var selectedApp: Selected = .app
     @Published var selectedAppToApp: SelectedAppToApp = .nothing
-    
+    @Published var configFileisIncorrect = false
     @Published private(set) var aplications: [Config] = []
-    func loadJson(filename fileName: String) {
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+    enum LoginFileError: Error {
+        case noFileFoundError
+        case encodingError
+    }
+    func loadJson() throws {
+        restart()
+        if let url = Bundle.main.url(forResource: UserDefaults.standard.string(forKey: "configFile"), withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
@@ -33,25 +38,28 @@ class SelectionViewModel: ObservableObject {
                 aplications = jsonData.config
                 useCase = jsonData.config.first!.universalLink.useCase
                 useCases = jsonData.config.first!.appToApp.useCase
+                configFileisIncorrect = false
             } catch {
-                print("error:\(error)")
+                throw LoginFileError.noFileFoundError
             }
+        } else {
+            throw LoginFileError.encodingError
         }
     }
     func changeAfterPickingSomething() {
         switch selectedLink {
+        case .nothing:
+            selectedEnvironment = nil
         case .enviroment:
             insurance = selectedEnvironment?.insurance ?? []
-            selectedUseCase = nil
             selectedInsurance = nil
         case .insurance:
             selectedUseCase = nil
-            selectedTestCase = nil
         case .useCase:
             testCase = selectedUseCase?.testCase ?? []
+            selectedTestCase = nil
         case .testCase:
             ()
-        default: ()
         }
     }
     func makelinkUniversal() -> String {
@@ -60,6 +68,23 @@ class SelectionViewModel: ObservableObject {
     }
     func makelinkAppToApp() -> String {
         return "https://\(aplications.first!.appToApp.staticPath)\(( selectedUseCases!.action)!)"
+    }
+    func restart() {
+        backendEnvironment = nil
+        insurance = nil
+        useCase = nil
+        testCase = nil
+        useCases = nil
+        selectedEnvironment = nil
+        selectedInsurance = nil
+        selectedUseCase = nil
+        selectedTestCase = nil
+        selectedUseCases = nil
+        selectedLink = .nothing
+        selectedApp = .app
+        selectedAppToApp = .nothing
+        configFileisIncorrect = false
+        aplications = []
     }
 }
 enum SelectedLink {

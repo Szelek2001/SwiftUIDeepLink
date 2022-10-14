@@ -27,7 +27,7 @@ struct LinkbuilderApp: App {
                     Symbols.history
                         Text(TextMain.history)
                 }
-                SplashScreen()
+                SettingsView()
                     .tabItem {
                     Symbols.gear
                         Text(TextMain.settings)

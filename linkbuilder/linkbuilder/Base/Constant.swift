@@ -18,6 +18,7 @@ enum TextSelection {
     static let appToApp = "App to App"
     static let universalLink = "Universal Link"
     static let selectType = "Select type: "
+    static let configIncorrect = "Config File is incorrect"
 }
 enum TextSelectionLinks {
     static let selectEnviroment = "Select Enviroment:"
