@@ -8,10 +8,6 @@
 import Foundation
 
 enum TextMain {
-    static let selection = "Selection"
-    static let settings = "Settings"
-    static let new = "Add new"
-    static let history = "History"
     static let addYourText = "Tap modification and write your link!"
 }
 enum TextSelection {
@@ -29,13 +25,20 @@ enum TextSelectionLinks {
     static let isSelected = " is selected"
 }
 enum TextURL {
-    static let copy = "copy"
-    static let save = "save"
     static let currentUrl = "Current URL :  "
-    static let modification = "Modification"
     static let alertIncorrectUrl = "The address is incorrect, do you want to add it?"
     static let cancel = "Cancel"
     static let add = "Add"
+    static let goToLink = "run"
+}
+enum TextSymbols {
+    static let copy = "copy"
+    static let save = "save"
+    static let modification = "Modification"
+    static let selection = "Selection"
+    static let settings = "Settings"
+    static let new = "Add new"
+    static let history = "History"
     static let goToLink = "run"
 }
 enum TextHistory {
@@ -44,6 +47,10 @@ enum TextHistory {
     static let notURL = "This is not a URL"
     static let ok = "OK"
     static let history = "History"
+}
+enum TextSettings {
+    static let previewFile = "Preview the configuration file"
+    static let currentFile = "Current configuration file"
 }
 enum Costant {
     static let splashScreenOpacity = 0.2

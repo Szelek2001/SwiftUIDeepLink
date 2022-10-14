@@ -18,10 +18,10 @@ struct URLView: View {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
             SplashScreen().opacity(0.2)
             VStack {
-                Spacer()
-                TextEditor(text: $urlLink)
-                    .disabled(editDisable).colorMultiply(editDisable ?  Color(.aokGray1!) : Color(.aokWhite!))
-                    .padding()
+                MyTextEditor(
+                    text: urlLink,
+                    editDisable: editDisable,
+                    frameHeight: 140)
                 Spacer()
                 HStack {
                     MyButton(
@@ -36,16 +36,16 @@ struct URLView: View {
                         }
                     }.alert(TextHistory.notURL, isPresented: $showingBadURLAlert) {
                         Button(TextHistory.ok, role: .cancel) { }
-                            }
+                    }
                     MyButton(
-                        text: TextURL.copy,
+                        text: TextSymbols.copy,
                         icon: Symbols.copy,
                         isDisable: editDisable
                     ) {
                         viewModel.writeToClipboard(url: urlLink)
                     }
                     MyButton(
-                        text: TextURL.save,
+                        text: TextSymbols.save,
                         icon: Symbols.save,
                         isDisable: editDisable
                     ) {
@@ -56,7 +56,6 @@ struct URLView: View {
                         }
                     }
                 }
-                Spacer(minLength: 30)
             }.padding(20)
         }.toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

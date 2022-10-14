@@ -16,13 +16,9 @@ struct SelectionView: View {
             ScrollView {
                 VStack {
                     if !viewModel.configFileisIncorrect {
-                        Text(TextSelection.selectType)
-                        Picker("", selection: $viewModel.selectedApp) {
-                            Text(TextSelection.appToApp).tag(Selected.appToApp)
-                            Text(TextSelection.universalLink).tag(Selected.universalLink)
-                        }.pickerStyle(SegmentedPickerStyle())
-                            .colorMultiply(Color(.aokGreen!))
-                            .onChange(of: viewModel.selectedApp) {_ in
+                        PickerWithText(text: TextSelection.selectType, title: "", selection: $viewModel.selectedApp) {
+                            TextPicker()
+                        }       .onChange(of: viewModel.selectedApp) {_ in
                                 viewModel.selectedLink = .nothing
                                 viewModel.changeAfterPickingSomething()
                             }
@@ -49,9 +45,13 @@ struct SelectionView: View {
                 viewModel.configFileisIncorrect = true
             }
         }
-
     }
-
+}
+struct TextPicker: View {
+    var body: some View {
+        Text(TextSelection.appToApp).tag(Selected.appToApp)
+        Text(TextSelection.universalLink).tag(Selected.universalLink)
+    }
 }
 
 struct SelectionView_Previews: PreviewProvider {

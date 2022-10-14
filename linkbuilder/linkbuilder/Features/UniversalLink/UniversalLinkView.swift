@@ -13,15 +13,12 @@ struct UniversalLinkView: View {
     var body: some View {
         VStack {
             VStack {
-                Text(TextSelectionLinks.selectEnviroment)
-                Picker("", selection: $viewModel.selectedEnvironment) {
+                PickerWithText(text: TextSelectionLinks.selectEnviroment, title: "", selection: $viewModel.selectedEnvironment) {
                     ForEach(viewModel.backendEnvironment!, id: \.self) { enviroment in
                         Text(enviroment.name)
                             .tag(enviroment as BackendEnviroment?)
                     }
-                }.pickerStyle(SegmentedPickerStyle())
-                    .colorMultiply(Color(.aokGreen!))
-                    .onChange(of: viewModel.selectedEnvironment) { _ in
+                }.onChange(of: viewModel.selectedEnvironment) { _ in
                     viewModel.selectedLink = .enviroment
                     viewModel.changeAfterPickingSomething()
                     }
@@ -29,14 +26,12 @@ struct UniversalLinkView: View {
             Spacer(minLength: 30)
             if viewModel.selectedLink == .enviroment || viewModel.selectedLink == .insurance || viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
                 VStack {
-                    Text(TextSelectionLinks.selectInsurance)
-                    Picker("", selection: $viewModel.selectedInsurance) {
+                    PickerWithText(text: TextSelectionLinks.selectInsurance, title: "", selection: $viewModel.selectedInsurance) {
                         ForEach(viewModel.insurance!, id: \.self) { insurance in
                             Text(insurance.name)
                                 .tag(insurance as Insurance?)
                         }
-                    }.pickerStyle(SegmentedPickerStyle())
-                        .colorMultiply(Color(.aokGreen!))
+                    }
                         .onChange(of: viewModel.selectedInsurance) { _ in
                         guard viewModel.selectedInsurance == nil else {
                             viewModel.selectedLink = .insurance
@@ -48,16 +43,12 @@ struct UniversalLinkView: View {
             Spacer(minLength: 30)
             if viewModel.selectedLink == .insurance || viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
                 VStack {
-                    Text(TextSelectionLinks.selectUseCase)
-
-                    Picker("", selection: $viewModel.selectedUseCase) {
+                    PickerWithText(text: TextSelectionLinks.selectUseCase, title: "", selection: $viewModel.selectedUseCase) {
                         ForEach(viewModel.useCase!, id: \.self) { useCase in
                             Text(useCase.name)
                                 .tag(useCase as UseCase?)
                         }
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .colorMultiply(Color(.aokGreen!))
                     .onChange(of: viewModel.selectedUseCase) { _ in
                             guard viewModel.selectedUseCase == nil else {
                                 viewModel.selectedLink = .useCase
@@ -70,14 +61,12 @@ struct UniversalLinkView: View {
             Spacer(minLength: 30)
             if viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
                 VStack {
-                    Text(TextSelectionLinks.selectTestCase)
-                    Picker("", selection: $viewModel.selectedTestCase) {
+                    PickerWithText(text: TextSelectionLinks.selectTestCase, title: "", selection: $viewModel.selectedTestCase) {
                         ForEach(viewModel.testCase!, id: \.self) { testCase in
                             Text(testCase.name)
                                 .tag(testCase as TestCase?)
                         }
-                    }.pickerStyle(SegmentedPickerStyle())
-                        .colorMultiply(Color(.aokGreen!))
+                    }
                         .onChange(of: viewModel.selectedTestCase) { _ in
                         guard viewModel.selectedTestCase == nil else {
                             viewModel.selectedLink = .testCase

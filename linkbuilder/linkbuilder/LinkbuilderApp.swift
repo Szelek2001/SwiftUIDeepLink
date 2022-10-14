@@ -15,22 +15,22 @@ struct LinkbuilderApp: App {
                 SelectionView(viewModel: SelectionViewModel())
                     .tabItem {
                     Symbols.checklist
-                        Text(TextMain.selection)
+                        Text(TextSymbols.selection)
             }
                 URLView(viewModel: URLViewModel(), urlLink: TextMain.addYourText)
                     .tabItem {
                     Symbols.new
-                        Text(TextMain.new)
+                        Text(TextSymbols.new)
                 }
                 HistoryView()
                     .tabItem {
                     Symbols.history
-                        Text(TextMain.history)
+                        Text(TextSymbols.history)
                 }
                 SettingsView()
                     .tabItem {
                     Symbols.gear
-                        Text(TextMain.settings)
+                        Text(TextSymbols.settings)
                 }
             }
         }

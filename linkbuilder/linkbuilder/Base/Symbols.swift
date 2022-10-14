@@ -17,5 +17,4 @@ enum Symbols {
     static let refresh = Image(systemName: "arrow.clockwise")
     static let modification = Image(systemName: "pencil.line")
     static let goToLink = Image(systemName: "link")
-
 }

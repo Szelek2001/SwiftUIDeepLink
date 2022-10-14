@@ -33,6 +33,8 @@
 		AA9FE9AB28F40276003A090C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9FE9AA28F40276003A090C /* Launch Screen.storyboard */; };
 		AAB8F82C28F6C1E30079D679 /* BadConfigFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8F82B28F6C1E30079D679 /* BadConfigFileView.swift */; };
 		AAED814C28F6E90900C1E131 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED814B28F6E90900C1E131 /* SettingsView.swift */; };
+		AAED814F28F9575900C1E131 /* MyTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED814E28F9575900C1E131 /* MyTextEditor.swift */; };
+		AAED815128F95EA500C1E131 /* PickerWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED815028F95EA500C1E131 /* PickerWithText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		AA9FE9AA28F40276003A090C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AAB8F82B28F6C1E30079D679 /* BadConfigFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadConfigFileView.swift; sourceTree = "<group>"; };
 		AAED814B28F6E90900C1E131 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AAED814E28F9575900C1E131 /* MyTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextEditor.swift; sourceTree = "<group>"; };
+		AAED815028F95EA500C1E131 /* PickerWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerWithText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 		AA1D0CA728E57B92006EE52B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				AAED814D28F9573200C1E131 /* MyViews */,
 				AA1D0CA828E57B99006EE52B /* Extension */,
 				AA1D0CB328E58C1E006EE52B /* Symbols.swift */,
 				AA26E00028E32D1B00B9E23A /* LottieView.swift */,
@@ -110,7 +115,6 @@
 				AA1D0CA928E57BA8006EE52B /* Colors.swift */,
 				AA1D0CAB28E57BC0006EE52B /* Image.swift */,
 				AA1D0CB928E6C877006EE52B /* Navigation.swift */,
-				AA1D0CC128EDA89F006EE52B /* MyButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -236,6 +240,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		AAED814D28F9573200C1E131 /* MyViews */ = {
+			isa = PBXGroup;
+			children = (
+				AA1D0CC128EDA89F006EE52B /* MyButton.swift */,
+				AAED814E28F9575900C1E131 /* MyTextEditor.swift */,
+				AAED815028F95EA500C1E131 /* PickerWithText.swift */,
+			);
+			path = MyViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -355,6 +369,8 @@
 				AA1D0CBE28ED73A5006EE52B /* Constant.swift in Sources */,
 				AA26E00128E32D1B00B9E23A /* LottieView.swift in Sources */,
 				AA1D0CD028F041A8006EE52B /* UniversalLinkView.swift in Sources */,
+				AAED815128F95EA500C1E131 /* PickerWithText.swift in Sources */,
+				AAED814F28F9575900C1E131 /* MyTextEditor.swift in Sources */,
 				AA1D0CCE28F002B1006EE52B /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
