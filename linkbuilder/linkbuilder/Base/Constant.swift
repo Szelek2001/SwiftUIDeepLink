@@ -52,6 +52,9 @@ enum TextSettings {
     static let previewFile = "Preview the configuration file"
     static let currentFile = "Current configuration file"
 }
-enum Costant {
+enum Constant {
     static let splashScreenOpacity = 0.2
+    static let maxHistoryCapacity = 10
+    static let keyForHistory = "history"
+    static let keyForConfig = "configFile"
 }

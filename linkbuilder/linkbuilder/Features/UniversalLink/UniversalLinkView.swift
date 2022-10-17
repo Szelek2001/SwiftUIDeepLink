@@ -13,7 +13,10 @@ struct UniversalLinkView: View {
     var body: some View {
         VStack {
             VStack {
-                PickerWithText(text: TextSelectionLinks.selectEnviroment, title: "", selection: $viewModel.selectedEnvironment) {
+                PickerWithText(
+                    text: TextSelectionLinks.selectEnviroment,
+                    title: "",
+                    selection: $viewModel.selectedEnvironment) {
                     ForEach(viewModel.backendEnvironment!, id: \.self) { enviroment in
                         Text(enviroment.name)
                             .tag(enviroment as BackendEnviroment?)
@@ -24,10 +27,16 @@ struct UniversalLinkView: View {
                     }
                  }
             Spacer(minLength: 30)
-            if viewModel.selectedLink == .enviroment || viewModel.selectedLink == .insurance || viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
+            if viewModel.selectedLink == .enviroment ||
+                viewModel.selectedLink == .insurance ||
+                viewModel.selectedLink == .useCase ||
+                viewModel.selectedLink == .testCase {
                 VStack {
-                    PickerWithText(text: TextSelectionLinks.selectInsurance, title: "", selection: $viewModel.selectedInsurance) {
-                        ForEach(viewModel.insurance!, id: \.self) { insurance in
+                    PickerWithText(
+                        text: TextSelectionLinks.selectInsurance,
+                        title: "",
+                        selection: $viewModel.selectedInsurance) {
+                        ForEach(viewModel.insurance ?? [], id: \.self) { insurance in
                             Text(insurance.name)
                                 .tag(insurance as Insurance?)
                         }
@@ -41,9 +50,14 @@ struct UniversalLinkView: View {
                     }
                 }}
             Spacer(minLength: 30)
-            if viewModel.selectedLink == .insurance || viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
+            if viewModel.selectedLink == .insurance ||
+                viewModel.selectedLink == .useCase ||
+                viewModel.selectedLink == .testCase {
                 VStack {
-                    PickerWithText(text: TextSelectionLinks.selectUseCase, title: "", selection: $viewModel.selectedUseCase) {
+                    PickerWithText(
+                        text: TextSelectionLinks.selectUseCase,
+                        title: "",
+                        selection: $viewModel.selectedUseCase) {
                         ForEach(viewModel.useCase!, id: \.self) { useCase in
                             Text(useCase.name)
                                 .tag(useCase as UseCase?)
@@ -59,10 +73,13 @@ struct UniversalLinkView: View {
                 }
             }
             Spacer(minLength: 30)
-            if viewModel.selectedLink == .useCase || viewModel.selectedLink == .testCase {
+            if viewModel.selectedLink == .useCase ||
+                viewModel.selectedLink == .testCase {
                 VStack {
-                    PickerWithText(text: TextSelectionLinks.selectTestCase, title: "", selection: $viewModel.selectedTestCase) {
-                        ForEach(viewModel.testCase!, id: \.self) { testCase in
+                    PickerWithText(
+                        text: TextSelectionLinks.selectTestCase,
+                        title: "", selection: $viewModel.selectedTestCase) {
+                        ForEach(viewModel.testCase ?? [], id: \.self) { testCase in
                             Text(testCase.name)
                                 .tag(testCase as TestCase?)
                         }

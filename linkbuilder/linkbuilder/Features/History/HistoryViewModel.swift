@@ -12,10 +12,10 @@ class HistoryViewModel: ObservableObject {
     enum URLError: Error {
         case badURL
     }
-    @Published private(set) var history: [String] = UserDefaults.standard.stringArray(forKey: "history") ?? []
+    @Published private(set) var history: [String] = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
     @MainActor
     func reload() async {
-        history = UserDefaults.standard.stringArray(forKey: "history") ?? []
+        history = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
     }
     func openURL(urlString: String) throws {
         if verifyUrl(urlString: urlString) == false {
@@ -31,10 +31,10 @@ class HistoryViewModel: ObservableObject {
         }
     }
     func delateToHistory(url: String) {
-        var history = UserDefaults.standard.stringArray(forKey: "history") ?? []
+        var history = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
         let number = history.firstIndex(of: url)
         history.remove(at: number!)
-        UserDefaults.standard.set(history, forKey: "history")
+        UserDefaults.standard.set(history, forKey: Constant.keyForHistory)
     }
     private func verifyUrl (urlString: String?) -> Bool {
         if let urlString = urlString {

@@ -29,7 +29,10 @@ class SelectionViewModel: ObservableObject {
     }
     func loadJson() throws {
         restart()
-        if let url = Bundle.main.url(forResource: UserDefaults.standard.string(forKey: "configFile"), withExtension: "json") {
+        if let url = Bundle.main.url(
+            forResource: UserDefaults.standard.string(
+                forKey: Constant.keyForConfig),
+                withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()

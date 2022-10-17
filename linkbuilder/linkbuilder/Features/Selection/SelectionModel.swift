@@ -90,7 +90,8 @@ extension Insurance: Hashable, Equatable {
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
-    }}
+    }
+}
 struct TestCase: Codable {
     var name: String
     var param: String
@@ -101,4 +102,5 @@ extension TestCase: Hashable {
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
-    }}
+    }
+}

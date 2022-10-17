@@ -17,12 +17,12 @@ class URLViewModel: ObservableObject {
         pasteboard.string = clipboard
     }
     func saveToHistory(url: String) {
-        var history = UserDefaults.standard.stringArray(forKey: "history") ?? []
-        if history.capacity >= 10 {
+        var history = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
+        if history.capacity >= Constant.maxHistoryCapacity {
             history.removeLast()
         }
         history.insert( url, at: 0)
-        UserDefaults.standard.set(history, forKey: "history")
+        UserDefaults.standard.set(history, forKey: Constant.keyForHistory)
     }
     func verifyUrl (urlString: String?) -> Bool {
         if let urlString = urlString {

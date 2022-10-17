@@ -16,10 +16,10 @@ struct URLView: View {
     var body: some View {
         ZStack {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
-            SplashScreen().opacity(0.2)
+            SplashScreen().opacity(Constant.splashScreenOpacity)
             VStack {
                 MyTextEditor(
-                    text: urlLink,
+                    text: $urlLink,
                     editDisable: editDisable,
                     frameHeight: 140)
                 Spacer()

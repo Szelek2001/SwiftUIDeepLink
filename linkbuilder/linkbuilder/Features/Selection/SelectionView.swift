@@ -12,19 +12,19 @@ struct SelectionView: View {
     var body: some View {
         ZStack {
             Color(.aokGray1!).ignoresSafeArea(edges: .top)
-            SplashScreen().opacity(Costant.splashScreenOpacity)
+            SplashScreen().opacity(Constant.splashScreenOpacity)
             ScrollView {
                 VStack {
                     if !viewModel.configFileisIncorrect {
                         PickerWithText(text: TextSelection.selectType, title: "", selection: $viewModel.selectedApp) {
                             TextPicker()
-                        }       .onChange(of: viewModel.selectedApp) {_ in
+                        }       .onChange(of: viewModel.selectedApp) { _ in
                                 viewModel.selectedLink = .nothing
                                 viewModel.changeAfterPickingSomething()
                             }
                         Spacer(minLength: 30)
                     } else {
-                        Spacer(minLength: 55)
+                        Spacer(minLength: 30)
                         BadConfigFileView()
                     }}
                 if viewModel.selectedApp == .universalLink {
