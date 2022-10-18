@@ -51,6 +51,8 @@ enum TextHistory {
 enum TextSettings {
     static let previewFile = "Preview the configuration file"
     static let currentFile = "Current configuration file"
+    static let settings = "Settings"
+    static let badJSONFile = "Nothing to see, load correct file :("
 }
 enum Constant {
     static let splashScreenOpacity = 0.2

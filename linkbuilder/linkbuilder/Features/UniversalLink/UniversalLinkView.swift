@@ -17,7 +17,7 @@ struct UniversalLinkView: View {
                     text: TextSelectionLinks.selectEnviroment,
                     title: "",
                     selection: $viewModel.selectedEnvironment) {
-                    ForEach(viewModel.backendEnvironment!, id: \.self) { enviroment in
+                    ForEach(viewModel.backendEnvironment ?? [], id: \.self) { enviroment in
                         Text(enviroment.name)
                             .tag(enviroment as BackendEnviroment?)
                     }

@@ -30,12 +30,24 @@
 		AA26DFFF28E32C7A00B9E23A /* lottie-tree.json in Resources */ = {isa = PBXBuildFile; fileRef = AA26DFFE28E32C7A00B9E23A /* lottie-tree.json */; };
 		AA26E00128E32D1B00B9E23A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26E00028E32D1B00B9E23A /* LottieView.swift */; };
 		AA26E00928E4839B00B9E23A /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26E00828E4839B00B9E23A /* SplashScreen.swift */; };
+		AA27239428FEAA8700A401EE /* LinkbuilderTestss.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27239328FEAA8700A401EE /* LinkbuilderTestss.swift */; };
+		AA27239B28FECD7000A401EE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27239A28FECD7000A401EE /* SettingsViewModel.swift */; };
 		AA9FE9AB28F40276003A090C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9FE9AA28F40276003A090C /* Launch Screen.storyboard */; };
 		AAB8F82C28F6C1E30079D679 /* BadConfigFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8F82B28F6C1E30079D679 /* BadConfigFileView.swift */; };
 		AAED814C28F6E90900C1E131 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED814B28F6E90900C1E131 /* SettingsView.swift */; };
 		AAED814F28F9575900C1E131 /* MyTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED814E28F9575900C1E131 /* MyTextEditor.swift */; };
 		AAED815128F95EA500C1E131 /* PickerWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED815028F95EA500C1E131 /* PickerWithText.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA27239528FEAA8700A401EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA26DFE228E3174900B9E23A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA26DFE928E3174900B9E23A;
+			remoteInfo = linkbuilder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AA1D0CA528E57AB3006EE52B /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
@@ -61,6 +73,9 @@
 		AA26DFFE28E32C7A00B9E23A /* lottie-tree.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-tree.json"; sourceTree = "<group>"; };
 		AA26E00028E32D1B00B9E23A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		AA26E00828E4839B00B9E23A /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		AA27239128FEAA8700A401EE /* LinkbuilderTestss.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkbuilderTestss.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA27239328FEAA8700A401EE /* LinkbuilderTestss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkbuilderTestss.swift; sourceTree = "<group>"; };
+		AA27239A28FECD7000A401EE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AA9FE9AA28F40276003A090C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AAB8F82B28F6C1E30079D679 /* BadConfigFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadConfigFileView.swift; sourceTree = "<group>"; };
 		AAED814B28F6E90900C1E131 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -74,6 +89,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA26DFFD28E32C0F00B9E23A /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA27238E28FEAA8700A401EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +213,7 @@
 			children = (
 				AA9FE9AA28F40276003A090C /* Launch Screen.storyboard */,
 				AA26DFEC28E3174900B9E23A /* linkbuilder */,
+				AA27239228FEAA8700A401EE /* LinkbuilderTestss */,
 				AA26DFEB28E3174900B9E23A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -199,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				AA26DFEA28E3174900B9E23A /* linkbuilder.app */,
+				AA27239128FEAA8700A401EE /* LinkbuilderTestss.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +248,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		AA27239228FEAA8700A401EE /* LinkbuilderTestss */ = {
+			isa = PBXGroup;
+			children = (
+				AA27239328FEAA8700A401EE /* LinkbuilderTestss.swift */,
+			);
+			path = LinkbuilderTestss;
+			sourceTree = "<group>";
+		};
 		AAB8F82A28F6C1C20079D679 /* BadConfigFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				AAED814B28F6E90900C1E131 /* SettingsView.swift */,
+				AA27239A28FECD7000A401EE /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -274,6 +307,24 @@
 			productReference = AA26DFEA28E3174900B9E23A /* linkbuilder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AA27239028FEAA8700A401EE /* LinkbuilderTestss */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA27239728FEAA8700A401EE /* Build configuration list for PBXNativeTarget "LinkbuilderTestss" */;
+			buildPhases = (
+				AA27238D28FEAA8700A401EE /* Sources */,
+				AA27238E28FEAA8700A401EE /* Frameworks */,
+				AA27238F28FEAA8700A401EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA27239628FEAA8700A401EE /* PBXTargetDependency */,
+			);
+			name = LinkbuilderTestss;
+			productName = LinkbuilderTestss;
+			productReference = AA27239128FEAA8700A401EE /* LinkbuilderTestss.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -286,6 +337,10 @@
 				TargetAttributes = {
 					AA26DFE928E3174900B9E23A = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					AA27239028FEAA8700A401EE = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = AA26DFE928E3174900B9E23A;
 					};
 				};
 			};
@@ -306,6 +361,7 @@
 			projectRoot = "";
 			targets = (
 				AA26DFE928E3174900B9E23A /* linkbuilder */,
+				AA27239028FEAA8700A401EE /* LinkbuilderTestss */,
 			);
 		};
 /* End PBXProject section */
@@ -320,6 +376,13 @@
 				AA26DFF528E3174900B9E23A /* Preview Assets.xcassets in Resources */,
 				AA9FE9AB28F40276003A090C /* Launch Screen.storyboard in Resources */,
 				AA26DFF228E3174900B9E23A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA27238F28FEAA8700A401EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA26E00928E4839B00B9E23A /* SplashScreen.swift in Sources */,
+				AA27239B28FECD7000A401EE /* SettingsViewModel.swift in Sources */,
 				AA1D0CB628E591EE006EE52B /* SelectionModel.swift in Sources */,
 				AA1D0CB428E58C1E006EE52B /* Symbols.swift in Sources */,
 				AA1D0CC228EDA89F006EE52B /* MyButton.swift in Sources */,
@@ -375,7 +439,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA27238D28FEAA8700A401EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA27239428FEAA8700A401EE /* LinkbuilderTestss.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA27239628FEAA8700A401EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA26DFE928E3174900B9E23A /* linkbuilder */;
+			targetProxy = AA27239528FEAA8700A401EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AA26DFF628E3174900B9E23A /* Debug */ = {
@@ -552,6 +632,42 @@
 			};
 			name = Release;
 		};
+		AA27239828FEAA8700A401EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRW5YYZGBH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = axxiome.LinkbuilderTestss;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/linkbuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/linkbuilder";
+			};
+			name = Debug;
+		};
+		AA27239928FEAA8700A401EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PRW5YYZGBH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = axxiome.LinkbuilderTestss;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/linkbuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/linkbuilder";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,6 +685,15 @@
 			buildConfigurations = (
 				AA26DFF928E3174900B9E23A /* Debug */,
 				AA26DFFA28E3174900B9E23A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA27239728FEAA8700A401EE /* Build configuration list for PBXNativeTarget "LinkbuilderTestss" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA27239828FEAA8700A401EE /* Debug */,
+				AA27239928FEAA8700A401EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
