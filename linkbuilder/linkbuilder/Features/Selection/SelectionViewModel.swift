@@ -61,15 +61,14 @@ class SelectionViewModel: ObservableObject {
         case .useCase:
             testCase = selectedUseCase?.testCase ?? []
             selectedTestCase = nil
-        case .testCase:
-            ()
+        default: ()
         }
     }
-    func makelinkUniversal() -> String {
+    func buildLinkUniversal() -> String {
         return "https://\(selectedInsurance!.subdomain)-\(selectedEnvironment!.name)-"
         + "\(selectedEnvironment!.staticPath)/\((selectedUseCase!.actions?.first)!)?\(selectedTestCase!.param)"
     }
-    func makelinkAppToApp() -> String {
+    func buildLinkAppToApp() -> String {
         return "https://\(aplications.first!.appToApp.staticPath)\(( selectedUseCases!.action)!)"
     }
     func restart() {

@@ -31,7 +31,7 @@ struct AppToAppView: View {
                     MyButton(text: TextSelectionLinks.confirm ) {
                         URLLinkIsShow = true
                     }.sheet(isPresented: $URLLinkIsShow) {
-                        URLView(viewModel: URLViewModel(), urlLink: viewModel.makelinkAppToApp())
+                        URLView(viewModel: URLViewModel(), urlLink: viewModel.buildLinkAppToApp())
                     }
                 }
             }

@@ -59,5 +59,3 @@ struct SelectionView_Previews: PreviewProvider {
         SelectionView(viewModel: SelectionViewModel())
     }
 }
-
-// zapytaj jak ex zrobic

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var showSourceCode = false
-    @State var sourceCodeName: String = UserDefaults.standard.string(forKey: Constant.keyForConfig) ?? " "
     @State var viewModel: SettingsViewModel = SettingsViewModel()
     @State var editDisable: Bool = true
     var body: some View {
@@ -20,7 +19,7 @@ struct SettingsView: View {
                     Spacer()
                     Toggle(TextSettings.previewFile, isOn: $showSourceCode)
                     Spacer()
-                    MyTextEditor(text: $sourceCodeName, editDisable: editDisable)
+                    MyTextEditor(text: $viewModel.sourceCodeName, editDisable: editDisable)
                     Spacer()
                     HStack {
                         MyButton(
@@ -28,7 +27,7 @@ struct SettingsView: View {
                             icon: Symbols.save,
                             isDisable: editDisable
                         ) {
-                            UserDefaults.standard.set(sourceCodeName, forKey: Constant.keyForConfig)
+                            viewModel.save()
                         }
                         MyButton(
                             text: TextSymbols.modification,

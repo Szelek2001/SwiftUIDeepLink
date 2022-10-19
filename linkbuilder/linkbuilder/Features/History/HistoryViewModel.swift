@@ -33,6 +33,9 @@ class HistoryViewModel: ObservableObject {
     func delateToHistory(url: String) {
         var history = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
         let number = history.firstIndex(of: url)
+        if  number == nil {
+            return
+        }
         history.remove(at: number!)
         UserDefaults.standard.set(history, forKey: Constant.keyForHistory)
     }
