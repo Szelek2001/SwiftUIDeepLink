@@ -58,7 +58,7 @@ struct UniversalLinkView: View {
                         text: TextSelectionLinks.selectUseCase,
                         title: "",
                         selection: $viewModel.selectedUseCase) {
-                        ForEach(viewModel.useCase!, id: \.self) { useCase in
+                            ForEach(viewModel.useCase ?? [], id: \.self) { useCase in
                             Text(useCase.name)
                                 .tag(useCase as UseCase?)
                         }
