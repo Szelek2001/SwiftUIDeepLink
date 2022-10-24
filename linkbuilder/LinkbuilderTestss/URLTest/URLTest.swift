@@ -20,7 +20,7 @@ final class URLTest: XCTestCase {
         XCTAssertNoThrow(url.writeToClipboard(url: ":)"))
     }
     func testSaveToHistory() {
-        UserDefaults.standard.set([],forKey: Constant.keyForHistory)
+        UserDefaults.standard.set([], forKey: Constant.keyForHistory)
         let history = [":)"]
         url.saveToHistory(url: ":)")
         XCTAssertEqual(history, UserDefaults.standard.stringArray(forKey: Constant.keyForHistory))

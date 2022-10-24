@@ -1,9 +1,3 @@
-//
-//  MyTextEditor.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 14/10/2022.
-//
 import SwiftUI
 struct MyTextEditor: View {
     @State var text: Binding<String>

@@ -1,10 +1,3 @@
-//
-//  LinkbuilderTestss.swift
-//  LinkbuilderTestss
-//
-//  Created by Axxiome Health on 18/10/2022.
-//
-
 import XCTest
 @testable import linkbuilder
 final class SelectionTestWithData: XCTestCase {

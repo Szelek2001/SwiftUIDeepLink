@@ -21,7 +21,5 @@ final class HistoryTest: XCTestCase {
         history.delateToHistory(url: "joj")
         let historyNew = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
         XCTAssertEqual(historyOld, historyNew)
-        
-        
     }
 }

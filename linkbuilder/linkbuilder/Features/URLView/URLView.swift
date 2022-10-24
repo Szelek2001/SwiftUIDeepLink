@@ -1,10 +1,3 @@
-//
-//  URLView.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 05/10/2022.
-//
-
 import SwiftUI
 
 struct URLView: View {

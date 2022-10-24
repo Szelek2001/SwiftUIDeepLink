@@ -1,10 +1,3 @@
-//
-//  HistoryViewModel.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 07/10/2022.
-//
-
 import Foundation
 import UIKit
 

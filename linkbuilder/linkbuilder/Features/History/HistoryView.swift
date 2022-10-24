@@ -1,10 +1,3 @@
-//
-//  HistoryView.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 06/10/2022.
-//
-
 import SwiftUI
 
 struct HistoryView: View {

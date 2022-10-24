@@ -1,10 +1,3 @@
-//
-//  BadConfigFileView.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 12/10/2022.
-//
-
 import SwiftUI
 
 struct BadConfigFileView: View {

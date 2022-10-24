@@ -1,10 +1,3 @@
-//
-//  SelectionViewModel.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 29/09/2022.
-//
-
 import Foundation
 
 class SelectionViewModel: ObservableObject {

@@ -1,10 +1,3 @@
-//
-//  SplashScreen.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 28/09/2022.
-//
-
 import SwiftUI
 
 struct SplashScreen: View {

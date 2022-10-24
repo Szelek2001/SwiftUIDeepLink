@@ -1,10 +1,3 @@
-//
-//  MyPicker.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 14/10/2022.
-//
-
 import SwiftUI
 struct PickerWithText<Label, SelectionValue, Content> : View where Label: StringProtocol, SelectionValue : Hashable, Content : View {
     typealias Content = View

@@ -1,10 +1,3 @@
-//
-//  SettingsViewModel.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 18/10/2022.
-//
-
 import Foundation
 
 class SettingsViewModel: ObservableObject {

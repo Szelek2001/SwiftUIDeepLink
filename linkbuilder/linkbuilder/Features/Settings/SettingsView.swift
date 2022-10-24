@@ -1,10 +1,3 @@
-//
-//  SettingsView.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 12/10/2022.
-//
-
 import SwiftUI
 
 struct SettingsView: View {
@@ -40,7 +33,9 @@ struct SettingsView: View {
                 }
                 .padding(20)
                 .sheet(isPresented: $showSourceCode) {
-                    TextEditor(text: $viewModel.jsonSourceCode.toUnwrapped(defaultValue: TextSettings.badJSONFile)).padding(50)
+                    TextEditor(
+                        text: $viewModel.jsonSourceCode.toUnwrapped(defaultValue: TextSettings.badJSONFile))
+                    .padding(50)
                 }
             }.task {
                 await viewModel.load()

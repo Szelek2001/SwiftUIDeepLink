@@ -1,10 +1,3 @@
-//
-//  AppToAppView.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 07/10/2022.
-//
-
 import SwiftUI
 
 struct AppToAppView: View {

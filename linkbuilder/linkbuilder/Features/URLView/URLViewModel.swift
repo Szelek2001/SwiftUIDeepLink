@@ -1,10 +1,3 @@
-//
-//  URLViewModel.swift
-//  linkbuilder
-//
-//  Created by Axxiome Health on 06/10/2022.
-//
-
 import Foundation
 import UIKit
 
