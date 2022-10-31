@@ -4,7 +4,7 @@ struct HistoryView: View {
     @StateObject var viewModel: HistoryViewModel = HistoryViewModel()
     @State private var showingBadURLAlert = false
     var body: some View {
-        NavigationView {
+        ZStack {
             List {
                 ForEach(viewModel.history, id: \.self) { url in
                     Text(url)
@@ -42,6 +42,12 @@ struct HistoryView: View {
                 refresh
                 }
             }.navigationTitle(TextHistory.history)
+                .embedInNavigation()
+                .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+                    Color.clear
+                        .frame(height: 0)
+                        .background(Material.bar)
+                }
                 .refreshable {
                     await viewModel.reload()
                 }
