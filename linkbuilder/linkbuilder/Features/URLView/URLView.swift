@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct URLView: View {
-    @StateObject var viewModel: URLViewModel
+    @ObservedObject var viewModel: URLViewModel
     @State var urlLink: String
     @State var editDisable: Bool = true
     @State var isIncorrectURL: Bool = false

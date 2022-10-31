@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @ObservedObject var viewModel: HistoryViewModel = HistoryViewModel()
+    @StateObject var viewModel: HistoryViewModel = HistoryViewModel()
     @State private var showingBadURLAlert = false
     var body: some View {
         NavigationView {

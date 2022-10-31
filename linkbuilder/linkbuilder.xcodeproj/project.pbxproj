@@ -140,6 +140,7 @@
 				AA1D0CA828E57B99006EE52B /* Extension */,
 				AA1D0CB328E58C1E006EE52B /* Symbols.swift */,
 				AA26E00028E32D1B00B9E23A /* LottieView.swift */,
+				AA27239A28FECD7000A401EE /* SettingsViewModel.swift */,
 				AA1D0CBD28ED73A5006EE52B /* Constant.swift */,
 			);
 			path = Base;
@@ -309,7 +310,6 @@
 			isa = PBXGroup;
 			children = (
 				AAED814B28F6E90900C1E131 /* SettingsView.swift */,
-				AA27239A28FECD7000A401EE /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";

@@ -11,7 +11,8 @@ struct SelectionView: View {
                     if !viewModel.configFileisIncorrect {
                         PickerWithText(text: TextSelection.selectType, title: "", selection: $viewModel.selectedApp) {
                             TextPicker()
-                        }       .onChange(of: viewModel.selectedApp) { _ in
+                        }
+                        .onChange(of: viewModel.selectedApp) { _ in
                                 viewModel.selectedLink = .nothing
                                 viewModel.changeAfterPickingSomething()
                             }

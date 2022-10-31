@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct UniversalLinkView: View {
-    @StateObject var viewModel: SelectionViewModel
+    @ObservedObject var viewModel: SelectionViewModel
     @State var URLLinkIsShow: Bool = false
     var body: some View {
         VStack {

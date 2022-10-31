@@ -42,7 +42,7 @@ struct SettingsView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                refresh
+                    refresh
                 }
             }
             .navigationTitle(TextSettings.settings)
@@ -64,7 +64,7 @@ struct SettingsView_Previews: PreviewProvider {
     }
 }
 extension Binding {
-     func toUnwrapped<T>(defaultValue: T) -> Binding<T> where Value == Optional<T> {
+    func toUnwrapped<T>(defaultValue: T) -> Binding<T> where Value == Optional<T> {
         Binding<T>(get: { self.wrappedValue ?? defaultValue }, set: { self.wrappedValue = $0 })
     }
 }
