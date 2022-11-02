@@ -17,7 +17,7 @@ struct URLView: View {
                     frameHeight: 140)
                 Spacer()
                 HStack {
-                    MyButton(
+                    ButtonWithText(
                         text: TextURL.goToLink,
                         icon: Symbols.goToLink,
                         isDisable: editDisable
@@ -30,14 +30,14 @@ struct URLView: View {
                     }.alert(TextHistory.notURL, isPresented: $showingBadURLAlert) {
                         Button(TextHistory.ok, role: .cancel) { }
                     }
-                    MyButton(
+                    ButtonWithText(
                         text: TextSymbols.copy,
                         icon: Symbols.copy,
                         isDisable: editDisable
                     ) {
                         viewModel.writeToClipboard(url: urlLink)
                     }
-                    MyButton(
+                    ButtonWithText(
                         text: TextSymbols.save,
                         icon: Symbols.save,
                         isDisable: editDisable

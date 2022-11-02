@@ -21,7 +21,7 @@ struct AppToAppView: View {
             if viewModel.selectedAppToApp == .usecases {
                 VStack {
                     Spacer(minLength: 20)
-                    MyButton(text: TextSelectionLinks.confirm ) {
+                    ButtonWithText(text: TextSelectionLinks.confirm ) {
                         URLLinkIsShow = true
                     }.sheet(isPresented: $URLLinkIsShow) {
                         URLView(viewModel: URLViewModel(), urlLink: viewModel.buildLinkAppToApp())

@@ -11,9 +11,7 @@ class SettingsViewModel: ObservableObject {
             ofType: "json") {
             do {
                 let constents = try String(contentsOfFile: url)
-                DispatchQueue.main.async {
                     self.jsonSourceCode = constents
-                }
             } catch _ as NSError {
                 self.jsonSourceCode = nil
             }

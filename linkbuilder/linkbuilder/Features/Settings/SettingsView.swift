@@ -15,14 +15,14 @@ struct SettingsView: View {
                     MyTextEditor(text: $viewModel.sourceCodeName, editDisable: editDisable)
                     Spacer()
                     HStack {
-                        MyButton(
+                        ButtonWithText(
                             text: TextSymbols.save,
                             icon: Symbols.save,
                             isDisable: editDisable
                         ) {
                             viewModel.save()
                         }
-                        MyButton(
+                        ButtonWithText(
                             text: TextSymbols.modification,
                             icon: Symbols.modification,
                             isDisable: true
