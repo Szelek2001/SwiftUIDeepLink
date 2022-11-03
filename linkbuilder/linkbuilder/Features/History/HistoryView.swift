@@ -18,14 +18,14 @@ struct HistoryView: View {
                             }
                         label: {
                             Text(TextHistory.openSite)
-                            }
+                        }
                         .tint(Color(.aokGreen!))
-                            }
+                        }
                         .swipeActions(edge: .leading) {
                             Button {
                                 Task {
-                                viewModel.delateToHistory(url: url)
-                                await viewModel.reload()
+                                    viewModel.delateToHistory(url: url)
+                                    await viewModel.reload()
                                 }
                             }
                         label: {
@@ -36,10 +36,10 @@ struct HistoryView: View {
             }
             .alert(TextHistory.notURL, isPresented: $showingBadURLAlert) {
                 Button(TextHistory.ok, role: .cancel) { }
-                    }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                refresh
+                    refresh
                 }
             }.navigationTitle(TextHistory.history)
                 .embedInNavigation()

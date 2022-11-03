@@ -10,7 +10,7 @@ final class SelectionTestWithData: XCTestCase {
             selection.loadJson()
         } catch {}
     }
-
+    
     override func tearDown() {
         selection = nil
         super.tearDown()

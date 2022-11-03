@@ -13,9 +13,9 @@ struct SelectionView: View {
                             TextPicker()
                         }
                         .onChange(of: viewModel.selectedApp) { _ in
-                                viewModel.selectedLink = .nothing
-                                viewModel.changeAfterPickingSomething()
-                            }
+                            viewModel.selectedLink = .nothing
+                            viewModel.changeAfterPickingSomething()
+                        }
                         Spacer(minLength: 30)
                     } else {
                         Spacer(minLength: 30)
@@ -36,8 +36,8 @@ struct SelectionView: View {
         .task { do {
             try viewModel.loadJson()
         } catch {
-                viewModel.configFileisIncorrect = true
-            }
+            viewModel.configFileisIncorrect = true
+        }
         }
     }
 }

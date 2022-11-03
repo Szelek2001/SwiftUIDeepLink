@@ -25,4 +25,4 @@ final class URLTest: XCTestCase {
         url.saveToHistory(url: ":)")
         XCTAssertEqual(history, UserDefaults.standard.stringArray(forKey: Constant.keyForHistory))
     }
-    }
+}

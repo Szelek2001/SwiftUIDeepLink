@@ -7,24 +7,24 @@ struct LinkbuilderApp: App {
             TabView {
                 SelectionView(viewModel: SelectionViewModel())
                     .tabItem {
-                    Symbols.checklist
+                        Symbols.checklist
                         Text(TextSymbols.selection)
-            }
+                    }
                 URLView(viewModel: URLViewModel(), urlLink: TextMain.addYourText)
                     .tabItem {
-                    Symbols.new
+                        Symbols.new
                         Text(TextSymbols.new)
-                }
+                    }
                 HistoryView()
                     .tabItem {
-                    Symbols.history
+                        Symbols.history
                         Text(TextSymbols.history)
-                }
+                    }
                 SettingsView()
                     .tabItem {
-                    Symbols.gear
+                        Symbols.gear
                         Text(TextSymbols.settings)
-                }
+                    }
             }.accentColor(Color(.aokGreen!))
         }
     }

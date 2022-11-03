@@ -10,15 +10,15 @@ struct UniversalLinkView: View {
                     text: TextSelectionLinks.selectEnviroment,
                     title: "",
                     selection: $viewModel.selectedEnvironment) {
-                    ForEach(viewModel.backendEnvironment ?? [], id: \.self) { enviroment in
-                        Text(enviroment.name)
-                            .tag(enviroment as BackendEnviroment?)
+                        ForEach(viewModel.backendEnvironment ?? [], id: \.self) { enviroment in
+                            Text(enviroment.name)
+                                .tag(enviroment as BackendEnviroment?)
+                        }
+                    }.onChange(of: viewModel.selectedEnvironment) { _ in
+                        viewModel.selectedLink = .enviroment
+                        viewModel.changeAfterPickingSomething()
                     }
-                }.onChange(of: viewModel.selectedEnvironment) { _ in
-                    viewModel.selectedLink = .enviroment
-                    viewModel.changeAfterPickingSomething()
-                    }
-                 }
+            }
             Spacer(minLength: 30)
             if viewModel.selectedLink == .enviroment ||
                 viewModel.selectedLink == .insurance ||
@@ -29,18 +29,18 @@ struct UniversalLinkView: View {
                         text: TextSelectionLinks.selectInsurance,
                         title: "",
                         selection: $viewModel.selectedInsurance) {
-                        ForEach(viewModel.insurance ?? [], id: \.self) { insurance in
-                            Text(insurance.name)
-                                .tag(insurance as Insurance?)
+                            ForEach(viewModel.insurance ?? [], id: \.self) { insurance in
+                                Text(insurance.name)
+                                    .tag(insurance as Insurance?)
+                            }
                         }
-                    }
                         .onChange(of: viewModel.selectedInsurance) { _ in
-                        guard viewModel.selectedInsurance == nil else {
-                            viewModel.selectedLink = .insurance
-                            viewModel.changeAfterPickingSomething()
-                            return
+                            guard viewModel.selectedInsurance == nil else {
+                                viewModel.selectedLink = .insurance
+                                viewModel.changeAfterPickingSomething()
+                                return
+                            }
                         }
-                    }
                 }}
             Spacer(minLength: 30)
             if viewModel.selectedLink == .insurance ||
@@ -52,17 +52,17 @@ struct UniversalLinkView: View {
                         title: "",
                         selection: $viewModel.selectedUseCase) {
                             ForEach(viewModel.useCase ?? [], id: \.self) { useCase in
-                            Text(useCase.name)
-                                .tag(useCase as UseCase?)
+                                Text(useCase.name)
+                                    .tag(useCase as UseCase?)
+                            }
                         }
-                    }
-                    .onChange(of: viewModel.selectedUseCase) { _ in
+                        .onChange(of: viewModel.selectedUseCase) { _ in
                             guard viewModel.selectedUseCase == nil else {
                                 viewModel.selectedLink = .useCase
                                 viewModel.changeAfterPickingSomething()
-                            return
+                                return
+                            }
                         }
-                    }
                 }
             }
             Spacer(minLength: 30)
@@ -72,18 +72,18 @@ struct UniversalLinkView: View {
                     PickerWithText(
                         text: TextSelectionLinks.selectTestCase,
                         title: "", selection: $viewModel.selectedTestCase) {
-                        ForEach(viewModel.testCase ?? [], id: \.self) { testCase in
-                            Text(testCase.name)
-                                .tag(testCase as TestCase?)
+                            ForEach(viewModel.testCase ?? [], id: \.self) { testCase in
+                                Text(testCase.name)
+                                    .tag(testCase as TestCase?)
+                            }
                         }
-                    }
                         .onChange(of: viewModel.selectedTestCase) { _ in
-                        guard viewModel.selectedTestCase == nil else {
-                            viewModel.selectedLink = .testCase
-                            viewModel.changeAfterPickingSomething()
-                        return
+                            guard viewModel.selectedTestCase == nil else {
+                                viewModel.selectedLink = .testCase
+                                viewModel.changeAfterPickingSomething()
+                                return
+                            }
                         }
-                    }
                 }
             }
             Spacer(minLength: 30)

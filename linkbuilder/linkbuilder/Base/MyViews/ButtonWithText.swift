@@ -22,7 +22,7 @@ struct ButtonWithText: View {
             .scaleEffect()
         }
         .withPressableStyle()
-
+        
     }
     var buttonbackColor: Color {
         return isDisable ? Color(.aokGreen!) : Color(.aokGray2!)

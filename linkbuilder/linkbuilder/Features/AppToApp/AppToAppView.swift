@@ -10,10 +10,10 @@ struct AppToAppView: View {
                     text: TextSelectionLinks.selectUseCase,
                     title: "",
                     selection: $viewModel.selectedUseCases) {
-                    ForEach(viewModel.useCases!, id: \.self) { usecases in
-                        Text(usecases.name).tag(usecases as UseCase?)
-                    }
-                }.onChange(of: viewModel.selectedUseCases) { _ in
+                        ForEach(viewModel.useCases!, id: \.self) { usecases in
+                            Text(usecases.name).tag(usecases as UseCase?)
+                        }
+                    }.onChange(of: viewModel.selectedUseCases) { _ in
                         viewModel.selectedAppToApp = .usecases
                     }
             }

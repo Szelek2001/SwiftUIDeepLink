@@ -25,7 +25,7 @@ class SelectionViewModel: ObservableObject {
         if let url = Bundle.main.url(
             forResource: UserDefaults.standard.string(
                 forKey: Constant.keyForConfig),
-                withExtension: "json") {
+            withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()

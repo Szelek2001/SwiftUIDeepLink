@@ -16,7 +16,7 @@ class HistoryViewModel: ObservableObject {
         }
         guard let url = URL(string: urlString) else {
             throw URLError.badURL }
-
+        
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
@@ -40,5 +40,5 @@ class HistoryViewModel: ObservableObject {
         }
         return false
     }
-
+    
 }
