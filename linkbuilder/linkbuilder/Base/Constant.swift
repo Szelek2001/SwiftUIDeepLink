@@ -3,12 +3,14 @@ import Foundation
 enum TextMain {
     static let addYourText = "Tap modification and write your link!"
 }
+
 enum TextSelection {
     static let appToApp = "App to App"
     static let universalLink = "Universal Link"
     static let selectType = "Select type: "
     static let configIncorrect = "Config File is incorrect"
 }
+
 enum TextSelectionLinks {
     static let selectEnviroment = "Select Enviroment:"
     static let selectInsurance = "Select Insurance:"
@@ -17,6 +19,7 @@ enum TextSelectionLinks {
     static let confirm = "Confirm"
     static let isSelected = " is selected"
 }
+
 enum TextURL {
     static let currentUrl = "Current URL :  "
     static let alertIncorrectUrl = "The address is incorrect, do you want to add it?"
@@ -24,6 +27,7 @@ enum TextURL {
     static let add = "Add"
     static let goToLink = "run"
 }
+
 enum TextSymbols {
     static let copy = "copy"
     static let save = "save"
@@ -34,6 +38,7 @@ enum TextSymbols {
     static let history = "History"
     static let goToLink = "run"
 }
+
 enum TextHistory {
     static let openSite = "Open site"
     static let delate = "Delate"
@@ -41,12 +46,14 @@ enum TextHistory {
     static let ok = "OK"
     static let history = "History"
 }
+
 enum TextSettings {
     static let previewFile = "Preview the configuration file"
     static let currentFile = "Current configuration file"
     static let settings = "Settings"
     static let badJSONFile = "Nothing to see, load correct file :("
 }
+
 enum Constant {
     static let splashScreenOpacity = 0.2
     static let maxHistoryCapacity = 10

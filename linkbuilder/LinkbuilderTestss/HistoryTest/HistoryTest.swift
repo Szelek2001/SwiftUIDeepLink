@@ -4,6 +4,7 @@ final class HistoryTest: XCTestCase {
     var history: HistoryViewModel!
     let badURL = "this is bad url"
     let okURL = "https://www.facebook.com/"
+    var urlService: URLService = URLService()
     override func setUp() {
         super.setUp()
         history = HistoryViewModel()
@@ -13,12 +14,12 @@ final class HistoryTest: XCTestCase {
         super.tearDown()
     }
     func testOpenURL() {
-        XCTAssertThrowsError(try history.openURL(urlString: badURL))
-        XCTAssertNoThrow(try history.openURL(urlString: okURL))
+        XCTAssertThrowsError(try urlService.openURL(urlString: badURL))
+        XCTAssertNoThrow(try urlService.openURL(urlString: okURL))
     }
     func testDelateHistory() {
         let historyOld = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
-        history.delateToHistory(url: "joj")
+        urlService.delateToHistory(url: "joj")
         let historyNew = UserDefaults.standard.stringArray(forKey: Constant.keyForHistory) ?? []
         XCTAssertEqual(historyOld, historyNew)
     }

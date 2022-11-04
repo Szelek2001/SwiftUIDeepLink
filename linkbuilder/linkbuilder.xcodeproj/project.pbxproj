@@ -35,10 +35,10 @@
 		AA27239B28FECD7000A401EE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27239A28FECD7000A401EE /* SettingsViewModel.swift */; };
 		AA27239F28FFE76600A401EE /* SettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27239E28FFE76600A401EE /* SettingsTest.swift */; };
 		AA31B200290016CF00CC11E5 /* HistoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1FF290016CF00CC11E5 /* HistoryTest.swift */; };
+		AA97EFF4291509D8008D3D6D /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97EFF3291509D8008D3D6D /* URLService.swift */; };
 		AA9FE9AB28F40276003A090C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9FE9AA28F40276003A090C /* Launch Screen.storyboard */; };
-		AAB8F82C28F6C1E30079D679 /* BadConfigFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB8F82B28F6C1E30079D679 /* BadConfigFileView.swift */; };
 		AAED814C28F6E90900C1E131 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED814B28F6E90900C1E131 /* SettingsView.swift */; };
-		AAED814F28F9575900C1E131 /* MyTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED814E28F9575900C1E131 /* MyTextEditor.swift */; };
+		AAED814F28F9575900C1E131 /* TextEditorWithCharLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED814E28F9575900C1E131 /* TextEditorWithCharLimit.swift */; };
 		AAED815128F95EA500C1E131 /* PickerWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED815028F95EA500C1E131 /* PickerWithText.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,10 +82,10 @@
 		AA27239A28FECD7000A401EE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AA27239E28FFE76600A401EE /* SettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTest.swift; sourceTree = "<group>"; };
 		AA31B1FF290016CF00CC11E5 /* HistoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTest.swift; sourceTree = "<group>"; };
+		AA97EFF3291509D8008D3D6D /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		AA9FE9AA28F40276003A090C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		AAB8F82B28F6C1E30079D679 /* BadConfigFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadConfigFileView.swift; sourceTree = "<group>"; };
 		AAED814B28F6E90900C1E131 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		AAED814E28F9575900C1E131 /* MyTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextEditor.swift; sourceTree = "<group>"; };
+		AAED814E28F9575900C1E131 /* TextEditorWithCharLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorWithCharLimit.swift; sourceTree = "<group>"; };
 		AAED815028F95EA500C1E131 /* PickerWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerWithText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,8 +140,8 @@
 				AA1D0CA828E57B99006EE52B /* Extension */,
 				AA1D0CB328E58C1E006EE52B /* Symbols.swift */,
 				AA26E00028E32D1B00B9E23A /* LottieView.swift */,
-				AA27239A28FECD7000A401EE /* SettingsViewModel.swift */,
 				AA1D0CBD28ED73A5006EE52B /* Constant.swift */,
+				AA97EFF3291509D8008D3D6D /* URLService.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -160,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				AAED814A28F6E8F700C1E131 /* Settings */,
-				AAB8F82A28F6C1C20079D679 /* BadConfigFile */,
 				AA1D0CD228F0495B006EE52B /* AppToApp */,
 				AA1D0CD128F044E9006EE52B /* UniversalLink */,
 				AA1D0CCA28EF0C2D006EE52B /* History */,
@@ -298,18 +297,11 @@
 			path = HistoryTest;
 			sourceTree = "<group>";
 		};
-		AAB8F82A28F6C1C20079D679 /* BadConfigFile */ = {
-			isa = PBXGroup;
-			children = (
-				AAB8F82B28F6C1E30079D679 /* BadConfigFileView.swift */,
-			);
-			path = BadConfigFile;
-			sourceTree = "<group>";
-		};
 		AAED814A28F6E8F700C1E131 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				AAED814B28F6E90900C1E131 /* SettingsView.swift */,
+				AA27239A28FECD7000A401EE /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -318,7 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1D0CC128EDA89F006EE52B /* ButtonWithText.swift */,
-				AAED814E28F9575900C1E131 /* MyTextEditor.swift */,
+				AAED814E28F9575900C1E131 /* TextEditorWithCharLimit.swift */,
 				AAED815028F95EA500C1E131 /* PickerWithText.swift */,
 			);
 			path = MyViews;
@@ -467,15 +459,15 @@
 				AA1D0CC628EEBB32006EE52B /* URLViewModel.swift in Sources */,
 				AA1D0CC028EDA121006EE52B /* URLView.swift in Sources */,
 				AA1D0CAA28E57BA8006EE52B /* Colors.swift in Sources */,
+				AA97EFF4291509D8008D3D6D /* URLService.swift in Sources */,
 				AA26DFEE28E3174900B9E23A /* LinkbuilderApp.swift in Sources */,
 				AA1D0CB228E587B5006EE52B /* SelectionView.swift in Sources */,
-				AAB8F82C28F6C1E30079D679 /* BadConfigFileView.swift in Sources */,
 				AA1D0CD428F04988006EE52B /* AppToAppView.swift in Sources */,
 				AA1D0CBE28ED73A5006EE52B /* Constant.swift in Sources */,
 				AA26E00128E32D1B00B9E23A /* LottieView.swift in Sources */,
 				AA1D0CD028F041A8006EE52B /* UniversalLinkView.swift in Sources */,
 				AAED815128F95EA500C1E131 /* PickerWithText.swift in Sources */,
-				AAED814F28F9575900C1E131 /* MyTextEditor.swift in Sources */,
+				AAED814F28F9575900C1E131 /* TextEditorWithCharLimit.swift in Sources */,
 				AA1D0CCE28F002B1006EE52B /* HistoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

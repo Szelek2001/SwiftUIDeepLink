@@ -24,7 +24,8 @@ class SelectionViewModel: ObservableObject {
         restart()
         if let url = Bundle.main.url(
             forResource: UserDefaults.standard.string(
-                forKey: Constant.keyForConfig),
+                forKey: Constant.keyForConfig
+            ),
             withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
@@ -54,7 +55,7 @@ class SelectionViewModel: ObservableObject {
         case .useCase:
             testCase = selectedUseCase?.testCase ?? []
             selectedTestCase = nil
-        default: ()
+        default: break
         }
     }
     func buildLinkUniversal() -> String {

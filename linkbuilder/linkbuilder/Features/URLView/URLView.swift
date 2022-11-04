@@ -6,12 +6,14 @@ struct URLView: View {
     @State var editDisable: Bool = true
     @State var isIncorrectURL: Bool = false
     @State private var showingBadURLAlert = false
+    @State private var urlFunction: URLService = URLService()
+
     var body: some View {
         ZStack {
-            Color(.aokGray1!).ignoresSafeArea(edges: .top)
+            Color.aokGray1.ignoresSafeArea(edges: .top)
             SplashScreen().opacity(Constant.splashScreenOpacity)
             VStack {
-                MyTextEditor(
+                TextEditorWithCharLimit(
                     text: $urlLink,
                     editDisable: editDisable,
                     frameHeight: 140)
@@ -23,7 +25,7 @@ struct URLView: View {
                         isDisable: editDisable
                     ) {
                         do {
-                            try viewModel.openURL(urlString: urlLink)
+                            try urlFunction.openURL(urlString: urlLink)
                         } catch {
                             showingBadURLAlert = true
                         }
@@ -42,8 +44,8 @@ struct URLView: View {
                         icon: Symbols.save,
                         isDisable: editDisable
                     ) {
-                        if viewModel.verifyUrl(urlString: urlLink) {
-                            viewModel.saveToHistory(url: urlLink)
+                        if urlFunction.verifyUrl(urlString: urlLink) {
+                            urlFunction.saveToHistory(url: urlLink)
                         } else {
                             isIncorrectURL = true
                         }
@@ -61,10 +63,10 @@ struct URLView: View {
                 editDisable.toggle()
             }
         } label: {
-            Symbols.modification.colorMultiply(Color(.aokGreen!))
+            Symbols.modification.colorMultiply(Color.aokGreen)
         }.alert(TextURL.alertIncorrectUrl, isPresented: $isIncorrectURL) {
             Button(TextURL.cancel, role: .cancel) { }
-            Button(TextURL.add) { viewModel.saveToHistory(url: urlLink) }
+            Button(TextURL.add) { urlFunction.saveToHistory(url: urlLink) }
         }
     }
 }

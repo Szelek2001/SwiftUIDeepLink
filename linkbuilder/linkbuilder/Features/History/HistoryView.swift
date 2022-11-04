@@ -3,6 +3,7 @@ import SwiftUI
 struct HistoryView: View {
     @StateObject var viewModel: HistoryViewModel = HistoryViewModel()
     @State private var showingBadURLAlert = false
+    @State private var urlFunction: URLService = URLService()
     var body: some View {
         ZStack {
             List {
@@ -11,7 +12,7 @@ struct HistoryView: View {
                         .swipeActions(edge: .trailing) {
                             Button {
                                 do {
-                                    try viewModel.openURL(urlString: url)
+                                    try urlFunction.openURL(urlString: url)
                                 } catch {
                                     showingBadURLAlert = true
                                 }
@@ -24,14 +25,14 @@ struct HistoryView: View {
                         .swipeActions(edge: .leading) {
                             Button {
                                 Task {
-                                    viewModel.delateToHistory(url: url)
+                                    urlFunction.delateToHistory(url: url)
                                     await viewModel.reload()
                                 }
                             }
                         label: {
                             Text(TextHistory.delate)}
                         }
-                        .tint(Color(.aokRed!))
+                        .tint(Color.aokRed)
                 }
             }
             .alert(TextHistory.notURL, isPresented: $showingBadURLAlert) {

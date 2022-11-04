@@ -25,7 +25,7 @@ struct LinkbuilderApp: App {
                         Symbols.gear
                         Text(TextSymbols.settings)
                     }
-            }.accentColor(Color(.aokGreen!))
+            }.accentColor(Color.aokGreen)
         }
     }
 }

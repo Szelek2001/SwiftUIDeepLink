@@ -7,7 +7,7 @@ struct PickerWithText<Label, SelectionValue, Content> : View where Label: String
     var content: (() -> Content)
     var body: some View {
         Text(text)
-        Picker(title, selection: selection, content: content)
+        Picker("", selection: selection, content: content)
             .pickerStyle(SegmentedPickerStyle())
     }
     init(text: String, title: Label, selection: Binding<SelectionValue>, content: @escaping (() -> Content)) {

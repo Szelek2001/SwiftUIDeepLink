@@ -7,12 +7,12 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(.aokGray1!).ignoresSafeArea(edges: .top)
+                Color.aokGray1.ignoresSafeArea(edges: .top)
                 VStack {
                     Spacer()
                     Toggle(TextSettings.previewFile, isOn: $showSourceCode)
                     Spacer()
-                    MyTextEditor(text: $viewModel.sourceCodeName, editDisable: editDisable)
+                    TextEditorWithCharLimit(text: $viewModel.sourceCodeName, editDisable: editDisable)
                     Spacer()
                     HStack {
                         ButtonWithText(
@@ -54,7 +54,7 @@ struct SettingsView: View {
                 await viewModel.load()
             }
         } label: {
-            Symbols.refresh.colorMultiply(Color(.aokGreen!))
+            Symbols.refresh.colorMultiply(Color.aokGreen)
         }
     }
 }

@@ -4,7 +4,7 @@ struct SelectionView: View {
     @StateObject var viewModel: SelectionViewModel
     var body: some View {
         ZStack {
-            Color(.aokGray1!).ignoresSafeArea(edges: .top)
+            Color.aokGray1.ignoresSafeArea(edges: .top)
             SplashScreen().opacity(Constant.splashScreenOpacity)
             ScrollView {
                 VStack {
@@ -19,8 +19,11 @@ struct SelectionView: View {
                         Spacer(minLength: 30)
                     } else {
                         Spacer(minLength: 30)
-                        BadConfigFileView()
-                    }}
+                        VStack {
+                            Spacer()
+                            Image("rejected")
+                            Spacer()
+                        }                    }}
                 if viewModel.selectedApp == .universalLink {
                     UniversalLinkView(viewModel: viewModel)
                 }
@@ -29,11 +32,13 @@ struct SelectionView: View {
                 }
             }.padding(20)
         }
-        .navigationTitle(viewModel.configFileisIncorrect
-                         ? TextSelection.configIncorrect
-                         : ((viewModel.aplications.first?.name ?? "") + TextSelectionLinks.isSelected))
+        .navigationTitle(
+            viewModel.configFileisIncorrect
+            ? TextSelection.configIncorrect
+            : ((viewModel.aplications.first?.name ?? "") + TextSelectionLinks.isSelected)
+        )
         .embedInNavigation()
-        .task { do {
+        .onAppear { do {
             try viewModel.loadJson()
         } catch {
             viewModel.configFileisIncorrect = true

@@ -13,7 +13,7 @@ struct ButtonWithText: View {
             .padding(10)
             .frame(minHeight: 45)
             .background(buttonbackColor)
-            .foregroundColor(Color(.aokWhite!))
+            .foregroundColor(Color.aokWhite)
             .cornerRadius(10)
             .shadow(radius: 1.0)
             .aspectRatio(contentMode: .fit)
@@ -22,10 +22,9 @@ struct ButtonWithText: View {
             .scaleEffect()
         }
         .withPressableStyle()
-        
     }
     var buttonbackColor: Color {
-        return isDisable ? Color(.aokGreen!) : Color(.aokGray2!)
+        return isDisable ? Color.aokGreen : Color.aokGray2
     }
 }
 struct PressableButtonStyle: ButtonStyle {

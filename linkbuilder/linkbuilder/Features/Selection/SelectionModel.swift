@@ -18,6 +18,7 @@ struct Config: Codable {
         case appToApp = "app-to-app"
     }
 }
+
 extension Config: Hashable {
     static func == (lhs: Config, rhs: Config) -> Bool {
         lhs.id == rhs.id
@@ -26,6 +27,7 @@ extension Config: Hashable {
         hasher.combine(id)
     }
 }
+
 struct UniversalLink: Codable {
     var backendEnviroment: [BackendEnviroment]
     var useCase: [UseCase]
